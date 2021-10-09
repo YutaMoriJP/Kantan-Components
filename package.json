@@ -1,0 +1,30 @@
+{
+  "name": "kantan-components",
+  "version": "1.0.8",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "rollup -c",
+    "build": "rollup -c -w"
+  },
+  "keywords": [],
+  "author": "Yuta Mori",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^16.10.2",
+    "@types/react": "^17.0.27",
+    "@types/react-dom": "^17.0.9",
+    "@types/styled-components": "^5.1.14",
+    "rollup": "^2.58.0",
+    "rollup-plugin-sass": "^1.2.9",
+    "rollup-plugin-typescript2": "^0.30.0"
+  },
+  "dependencies": {
+    "styled-components": "^5.3.1",    
+    "framer-motion": "^4.1.17"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
