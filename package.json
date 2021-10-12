@@ -1,13 +1,13 @@
 {
   "name": "kantan-components",
-  "version": "1.0.8",
+  "version": "1.1.0",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
     "start": "rollup -c",
     "build": "rollup -c -w"
   },
-  "keywords": [],
+  "keywords": ["React", "React Components", "Reusable Components"],
   "author": "Yuta Mori",
   "license": "ISC",
   "devDependencies": {

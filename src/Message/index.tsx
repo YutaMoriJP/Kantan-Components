@@ -34,17 +34,17 @@ interface MessageProps {
   children: string | React.ReactNode;
   onClose: () => void;
   ms: number;
-  bottom?: boolean;
+  below?: boolean;
   color?: string;
-  fixed?: boolean;
+  bottom?: boolean;
 }
 /**
  *
  * @param {String} children rendered message
  * @param {Function} onClose unmounts Message component
  * @param {Number} ms time value that closes the Message component
- * @param {Boolean} bottom optional value that renders the Message component right below the parent
- * @param {Boolean} fixed optional value that renders the Message component at the bottom of the viewport
+ * @param {Boolean} below optional value that renders the Message component right below the parent
+ * @param {Boolean} bottom optional value that renders the Message component at the bottom of the viewport
  * @param {String} color sets the background color for the bottom/fixed options
  * @returns
  */
@@ -53,8 +53,8 @@ const Message = ({
   children,
   onClose,
   ms = 2000,
+  below,
   bottom,
-  fixed,
   color,
 }: MessageProps): JSX.Element => {
   const timerRef = React.useRef<NodeJS.Timeout>(null!);
@@ -65,9 +65,9 @@ const Message = ({
     };
   }, [ms, onClose]);
   //if bottom is true, text is placed right below the containing element, like a button (must have position:relaitve CSS RULE)
-  if (bottom) return <Text color={color}>{children}</Text>;
+  if (below) return <Text color={color}>{children}</Text>;
   //if fixed is true, the text is placed at the bottom of the page
-  if (fixed) return <Fixed color={color}>{children}</Fixed>;
+  if (bottom) return <Fixed color={color}>{children}</Fixed>;
   return <>{children}</>;
 };
 export default Message;

@@ -1,73 +1,105 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import * as React from "react";
 
-type ArticleProps = {
+type SpanProps = {
   width: string;
   [rest: string]: any;
 };
 
-const Article = styled.article<ArticleProps>`
-  text-decoration: 0;
+const Wrapper = styled.span`
   position: relative;
-  margin: 0;
-  width: ${props => props.width || "fit-content"};
-  .tooltiptext {
-    visibility: hidden;
-    background-color: #212529;
-    opacity: 0.9;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px;
-    position: absolute;
-    z-index: 1;
-    font-size: 0.5rem;
-    width: 100%;
-    top: 100%;
-    left: 50%;
-    font-size: 0.9rem;
-    transform: translateX(-50%);
-  }
+  display: inline-block;
   :hover .tooltiptext {
     visibility: visible;
+    opacity: 1;
   }
+`;
+
+const Span = styled.span<SpanProps>`
+  visibility: hidden;
+  width: 100px;
+  background-color: #212529;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px 0;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+  ${props =>
+    props.bottom &&
+    css`
+      /* Position the tooltip */
+      position: absolute;
+      z-index: 1;
+      top: 100%;
+      left: 50%;
+      margin-left: -50px;
+    `}
+  ${props =>
+    props.top &&
+    css`
+      position: absolute;
+      z-index: 1;
+      bottom: 100%;
+      left: 50%;
+      margin-left: -50px;
+    `}
+    ${props =>
+    props.left &&
+    css`
+      position: absolute;
+      z-index: 1;
+      top: -5px;
+      right: 105%;
+    `}
+      ${props =>
+    props.right &&
+    css`
+      position: absolute;
+      z-index: 1;
+      top: -5px;
+      left: 105%;
+    `}
 `;
 
 type ToolTipProps = {
   children: React.ReactNode;
   text: string;
+  bottom?: boolean;
+  top?: boolean;
+  right?: boolean;
+  left?: boolean;
   toolTipProps?: {};
-  width?: string;
 } & React.ComponentProps<"article">;
 
-const ToolTip = ({
+const Tooltip = ({
   children,
   text,
-  width = "fit-content",
   toolTipProps = {},
   ...rest
 }: ToolTipProps): JSX.Element => {
   const [hidden, setHidden] = React.useState(true);
   const handleMouseOver = () => setHidden(false);
   const handleMouseOut = () => setHidden(true);
+
+  //apply default position, if all top/bottom/left/right are false, bottom is true
+  const { top, bottom, left, right } = rest;
+  const defaultPosition = !top && !bottom && !left && !right ? true : false;
+
   return (
-    <Article
-      width={width}
-      onMouseOver={handleMouseOver}
-      onMouseOut={handleMouseOut}
-      {...rest}
-    >
+    <Wrapper onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
       {children}
-      <span
+      <Span
         className="tooltiptext"
         aria-hidden={hidden}
         aria-label={text}
-        {...toolTipProps}
+        bottom={defaultPosition}
+        {...rest}
       >
         {text}
-      </span>
-    </Article>
+      </Span>
+    </Wrapper>
   );
 };
 
-export default ToolTip;
+export default Tooltip;

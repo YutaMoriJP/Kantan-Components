@@ -84,19 +84,19 @@ function __makeTemplateObject(cooked, raw) {
 }
 
 var Text = styled__default["default"].span(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["\n  position: absolute;\n  padding: 6px;\n  border-radius: 5px;\n  top: 115%;\n  left: 45%;\n  font-size: 0.6rem;\n  transform: translate(-50%);\n  background: ", ";\n  color: #f8f9fa;\n  font-weight: 500;\n  width: max-content;\n  z-index: 10000;\n"], ["\n  position: absolute;\n  padding: 6px;\n  border-radius: 5px;\n  top: 115%;\n  left: 45%;\n  font-size: 0.6rem;\n  transform: translate(-50%);\n  background: ", ";\n  color: #f8f9fa;\n  font-weight: 500;\n  width: max-content;\n  z-index: 10000;\n"])), function (props) { return props.color || "#212529"; });
-var Fixed = styled__default["default"].aside(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  position: fixed;\n  bottom: 0;\n  left: 50%;\n  border-radius: 5px;\n  transform: translate(-50%);\n  padding: 10px;\n  margin-bottom: 10px;\n  font-size: 1rem;\n  color: white;\n  width: max-content;\n  background: ", ";\n"], ["\n  position: fixed;\n  bottom: 0;\n  left: 50%;\n  border-radius: 5px;\n  transform: translate(-50%);\n  padding: 10px;\n  margin-bottom: 10px;\n  font-size: 1rem;\n  color: white;\n  width: max-content;\n  background: ", ";\n"])), function (props) { return props.color || "#212529"; });
+var Fixed = styled__default["default"].aside(templateObject_2$1 || (templateObject_2$1 = __makeTemplateObject(["\n  position: fixed;\n  bottom: 0;\n  left: 50%;\n  border-radius: 5px;\n  transform: translate(-50%);\n  padding: 10px;\n  margin-bottom: 10px;\n  font-size: 1rem;\n  color: white;\n  width: max-content;\n  background: ", ";\n"], ["\n  position: fixed;\n  bottom: 0;\n  left: 50%;\n  border-radius: 5px;\n  transform: translate(-50%);\n  padding: 10px;\n  margin-bottom: 10px;\n  font-size: 1rem;\n  color: white;\n  width: max-content;\n  background: ", ";\n"])), function (props) { return props.color || "#212529"; });
 /**
  *
  * @param {String} children rendered message
  * @param {Function} onClose unmounts Message component
  * @param {Number} ms time value that closes the Message component
- * @param {Boolean} bottom optional value that renders the Message component right below the parent
- * @param {Boolean} fixed optional value that renders the Message component at the bottom of the viewport
+ * @param {Boolean} below optional value that renders the Message component right below the parent
+ * @param {Boolean} bottom optional value that renders the Message component at the bottom of the viewport
  * @param {String} color sets the background color for the bottom/fixed options
  * @returns
  */
 var Message = function (_a) {
-    var children = _a.children, onClose = _a.onClose, _b = _a.ms, ms = _b === void 0 ? 2000 : _b, bottom = _a.bottom, fixed = _a.fixed, color = _a.color;
+    var children = _a.children, onClose = _a.onClose, _b = _a.ms, ms = _b === void 0 ? 2000 : _b, below = _a.below, bottom = _a.bottom, color = _a.color;
     var timerRef = React__namespace.useRef(null);
     React__namespace.useEffect(function () {
         timerRef.current = setTimeout(onClose, ms);
@@ -105,14 +105,14 @@ var Message = function (_a) {
         };
     }, [ms, onClose]);
     //if bottom is true, text is placed right below the containing element, like a button (must have position:relaitve CSS RULE)
-    if (bottom)
+    if (below)
         return React__namespace.createElement(Text, { color: color }, children);
     //if fixed is true, the text is placed at the bottom of the page
-    if (fixed)
+    if (bottom)
         return React__namespace.createElement(Fixed, { color: color }, children);
     return React__namespace.createElement(React__namespace.Fragment, null, children);
 };
-var templateObject_1$3, templateObject_2;
+var templateObject_1$3, templateObject_2$1;
 
 var BackDropMotion = styled__default["default"](framerMotion.motion.div)(templateObject_1$2 || (templateObject_1$2 = __makeTemplateObject(["\n  position: fixed;\n  width: 100vw;\n  height: 100vh;\n  margin: 0;\n  top: 0;\n  left: 0;\n  background: #000000e1;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: ", ";\n"], ["\n  position: fixed;\n  width: 100vw;\n  height: 100vh;\n  margin: 0;\n  top: 0;\n  left: 0;\n  background: #000000e1;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: ", ";\n"])), function (props) { return props.zIndex || 10000; });
 var Backdrop = function (_a) {
@@ -154,18 +154,30 @@ var Modal = function (_a) {
 };
 var templateObject_1$1;
 
-var Article = styled__default["default"].article(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  text-decoration: 0;\n  position: relative;\n  margin: 0;\n  width: ", ";\n  .tooltiptext {\n    visibility: hidden;\n    background-color: #212529;\n    opacity: 0.9;\n    color: #fff;\n    text-align: center;\n    border-radius: 6px;\n    padding: 5px;\n    position: absolute;\n    z-index: 1;\n    font-size: 0.5rem;\n    width: 100%;\n    top: 100%;\n    left: 50%;\n    font-size: 0.9rem;\n    transform: translateX(-50%);\n  }\n  :hover .tooltiptext {\n    visibility: visible;\n  }\n"], ["\n  text-decoration: 0;\n  position: relative;\n  margin: 0;\n  width: ", ";\n  .tooltiptext {\n    visibility: hidden;\n    background-color: #212529;\n    opacity: 0.9;\n    color: #fff;\n    text-align: center;\n    border-radius: 6px;\n    padding: 5px;\n    position: absolute;\n    z-index: 1;\n    font-size: 0.5rem;\n    width: 100%;\n    top: 100%;\n    left: 50%;\n    font-size: 0.9rem;\n    transform: translateX(-50%);\n  }\n  :hover .tooltiptext {\n    visibility: visible;\n  }\n"])), function (props) { return props.width || "fit-content"; });
-var ToolTip = function (_a) {
-    var children = _a.children, text = _a.text, _b = _a.width, width = _b === void 0 ? "fit-content" : _b, _c = _a.toolTipProps, toolTipProps = _c === void 0 ? {} : _c, rest = __rest(_a, ["children", "text", "width", "toolTipProps"]);
-    var _d = React__namespace.useState(true), hidden = _d[0], setHidden = _d[1];
+var Wrapper = styled__default["default"].span(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  position: relative;\n  display: inline-block;\n  :hover .tooltiptext {\n    visibility: visible;\n    opacity: 1;\n  }\n"], ["\n  position: relative;\n  display: inline-block;\n  :hover .tooltiptext {\n    visibility: visible;\n    opacity: 1;\n  }\n"])));
+var Span = styled__default["default"].span(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n  visibility: hidden;\n  width: 100px;\n  background-color: #212529;\n  color: #fff;\n  text-align: center;\n  border-radius: 5px;\n  padding: 5px 0;\n  opacity: 0;\n  transition: opacity 0.8s ease-in-out;\n  ", "\n  ", "\n    ", "\n      ", "\n"], ["\n  visibility: hidden;\n  width: 100px;\n  background-color: #212529;\n  color: #fff;\n  text-align: center;\n  border-radius: 5px;\n  padding: 5px 0;\n  opacity: 0;\n  transition: opacity 0.8s ease-in-out;\n  ", "\n  ", "\n    ", "\n      ", "\n"])), function (props) {
+    return props.bottom && styled.css(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n      /* Position the tooltip */\n      position: absolute;\n      z-index: 1;\n      top: 100%;\n      left: 50%;\n      margin-left: -50px;\n    "], ["\n      /* Position the tooltip */\n      position: absolute;\n      z-index: 1;\n      top: 100%;\n      left: 50%;\n      margin-left: -50px;\n    "])));
+}, function (props) {
+    return props.top && styled.css(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n      position: absolute;\n      z-index: 1;\n      bottom: 100%;\n      left: 50%;\n      margin-left: -50px;\n    "], ["\n      position: absolute;\n      z-index: 1;\n      bottom: 100%;\n      left: 50%;\n      margin-left: -50px;\n    "])));
+}, function (props) {
+    return props.left && styled.css(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n      position: absolute;\n      z-index: 1;\n      top: -5px;\n      right: 105%;\n    "], ["\n      position: absolute;\n      z-index: 1;\n      top: -5px;\n      right: 105%;\n    "])));
+}, function (props) {
+    return props.right && styled.css(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n      position: absolute;\n      z-index: 1;\n      top: -5px;\n      left: 105%;\n    "], ["\n      position: absolute;\n      z-index: 1;\n      top: -5px;\n      left: 105%;\n    "])));
+});
+var Tooltip = function (_a) {
+    var children = _a.children, text = _a.text; _a.toolTipProps; var rest = __rest(_a, ["children", "text", "toolTipProps"]);
+    var _c = React__namespace.useState(true), hidden = _c[0], setHidden = _c[1];
     var handleMouseOver = function () { return setHidden(false); };
     var handleMouseOut = function () { return setHidden(true); };
-    return (React__namespace.createElement(Article, __assign({ width: width, onMouseOver: handleMouseOver, onMouseOut: handleMouseOut }, rest),
+    //apply default position, if all top/bottom/left/right are false, bottom is true
+    var top = rest.top, bottom = rest.bottom, left = rest.left, right = rest.right;
+    var defaultPosition = !top && !bottom && !left && !right ? true : false;
+    return (React__namespace.createElement(Wrapper, { onMouseOver: handleMouseOver, onMouseOut: handleMouseOut },
         children,
-        React__namespace.createElement("span", __assign({ className: "tooltiptext", "aria-hidden": hidden, "aria-label": text }, toolTipProps), text)));
+        React__namespace.createElement(Span, __assign({ className: "tooltiptext", "aria-hidden": hidden, "aria-label": text, bottom: defaultPosition }, rest), text)));
 };
-var templateObject_1;
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6;
 
 exports.Message = Message;
 exports.Modal = Modal;
-exports.Tooltip = ToolTip;
+exports.Tooltip = Tooltip;
