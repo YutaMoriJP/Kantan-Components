@@ -44,7 +44,12 @@ interface ModalProps {
   color?: string;
 }
 
-const Modal = ({ handleClose, children, color }: ModalProps): JSX.Element => {
+const Modal = ({
+  handleClose,
+  children,
+  color,
+  ...rest
+}: ModalProps): JSX.Element => {
   const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
     event.stopPropagation(); //event will NOT bubble up to parent element
   };
@@ -58,6 +63,7 @@ const Modal = ({ handleClose, children, color }: ModalProps): JSX.Element => {
           animate="visible"
           exit="exit"
           color={color}
+          {...rest}
         >
           {children}
         </ModalMotion>

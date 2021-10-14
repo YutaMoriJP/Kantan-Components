@@ -25,16 +25,17 @@ const Span = styled.span<SpanProps>`
   padding: 5px 0;
   opacity: 0;
   transition: opacity 0.8s ease-in-out;
+  /* BOTTOM */
   ${props =>
     props.bottom &&
     css`
-      /* Position the tooltip */
       position: absolute;
       z-index: 1;
       top: 100%;
       left: 50%;
       margin-left: -50px;
     `}
+  /* TOP */
   ${props =>
     props.top &&
     css`
@@ -44,6 +45,7 @@ const Span = styled.span<SpanProps>`
       left: 50%;
       margin-left: -50px;
     `}
+    /* LEFT */
     ${props =>
     props.left &&
     css`
@@ -52,6 +54,7 @@ const Span = styled.span<SpanProps>`
       top: -5px;
       right: 105%;
     `}
+      /* RIGHT */
       ${props =>
     props.right &&
     css`

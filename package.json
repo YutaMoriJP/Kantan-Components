@@ -1,13 +1,17 @@
 {
   "name": "kantan-components",
-  "version": "1.1.0",
+  "version": "1.1.6",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
     "start": "rollup -c",
     "build": "rollup -c -w"
   },
-  "keywords": ["React", "React Components", "Reusable Components"],
+  "keywords": [
+    "React",
+    "React Components",
+    "Reusable Components"
+  ],
   "author": "Yuta Mori",
   "license": "ISC",
   "devDependencies": {
@@ -20,11 +24,12 @@
     "rollup-plugin-typescript2": "^0.30.0"
   },
   "dependencies": {
-    "styled-components": "^5.3.1",    
-    "framer-motion": "^4.1.17"
+    "framer-motion": "^4.1.17",
+    "styled-components": "^5.3.1",
+    "kantan-hooks": "^1.1.7"
   },
   "peerDependencies": {
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
-  }
+    "react-dom": "^17.0.2"    
+   }
 }

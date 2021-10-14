@@ -16,6 +16,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 var React = require('react');
 var styled = require('styled-components');
 var framerMotion = require('framer-motion');
+var kantanHooks = require('kantan-hooks');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
@@ -83,8 +84,16 @@ function __makeTemplateObject(cooked, raw) {
     return cooked;
 }
 
-var Text = styled__default["default"].span(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["\n  position: absolute;\n  padding: 6px;\n  border-radius: 5px;\n  top: 115%;\n  left: 45%;\n  font-size: 0.6rem;\n  transform: translate(-50%);\n  background: ", ";\n  color: #f8f9fa;\n  font-weight: 500;\n  width: max-content;\n  z-index: 10000;\n"], ["\n  position: absolute;\n  padding: 6px;\n  border-radius: 5px;\n  top: 115%;\n  left: 45%;\n  font-size: 0.6rem;\n  transform: translate(-50%);\n  background: ", ";\n  color: #f8f9fa;\n  font-weight: 500;\n  width: max-content;\n  z-index: 10000;\n"])), function (props) { return props.color || "#212529"; });
-var Fixed = styled__default["default"].aside(templateObject_2$1 || (templateObject_2$1 = __makeTemplateObject(["\n  position: fixed;\n  bottom: 0;\n  left: 50%;\n  border-radius: 5px;\n  transform: translate(-50%);\n  padding: 10px;\n  margin-bottom: 10px;\n  font-size: 1rem;\n  color: white;\n  width: max-content;\n  background: ", ";\n"], ["\n  position: fixed;\n  bottom: 0;\n  left: 50%;\n  border-radius: 5px;\n  transform: translate(-50%);\n  padding: 10px;\n  margin-bottom: 10px;\n  font-size: 1rem;\n  color: white;\n  width: max-content;\n  background: ", ";\n"])), function (props) { return props.color || "#212529"; });
+var Position = styled__default["default"].span(templateObject_5$1 || (templateObject_5$1 = __makeTemplateObject(["\n  width: fit-content;\n  color: ", ";\n  background: ", ";\n  opacity: 0.9;\n  text-align: center;\n  border-radius: 5px;\n  padding: 6px;\n  position: absolute;\n\n  /* BOTTOM */\n  ", "\n  /* TOP */\n  ", "\n    /* LEFT */\n    ", "\n      /* RIGHT */\n      ", "\n"], ["\n  width: fit-content;\n  color: ", ";\n  background: ", ";\n  opacity: 0.9;\n  text-align: center;\n  border-radius: 5px;\n  padding: 6px;\n  position: absolute;\n\n  /* BOTTOM */\n  ", "\n  /* TOP */\n  ", "\n    /* LEFT */\n    ", "\n      /* RIGHT */\n      ", "\n"])), function (props) { return props.color || "white"; }, function (props) { return props.bgColor || "#212529"; }, function (props) {
+    return props.position === "bottom" && styled.css(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["\n      z-index: 1;\n      top: 100%;\n      left: 50%;\n      margin-left: -50px;\n    "], ["\n      z-index: 1;\n      top: 100%;\n      left: 50%;\n      margin-left: -50px;\n    "])));
+}, function (props) {
+    return props.position === "top" && styled.css(templateObject_2$1 || (templateObject_2$1 = __makeTemplateObject(["\n      z-index: 1;\n      bottom: 100%;\n      left: 50%;\n      margin-left: -50px;\n    "], ["\n      z-index: 1;\n      bottom: 100%;\n      left: 50%;\n      margin-left: -50px;\n    "])));
+}, function (props) {
+    return props.position === "left" && styled.css(templateObject_3$1 || (templateObject_3$1 = __makeTemplateObject(["\n      position: absolute;\n      z-index: 1;\n      top: -5px;\n      right: 105%;\n    "], ["\n      position: absolute;\n      z-index: 1;\n      top: -5px;\n      right: 105%;\n    "])));
+}, function (props) {
+    return props.position === "right" && styled.css(templateObject_4$1 || (templateObject_4$1 = __makeTemplateObject(["\n      z-index: 1;\n      top: -5px;\n      left: 105%;\n    "], ["\n      z-index: 1;\n      top: -5px;\n      left: 105%;\n    "])));
+});
+var Fixed = styled__default["default"].span(templateObject_6$1 || (templateObject_6$1 = __makeTemplateObject(["\n  position: fixed;\n  bottom: 0;\n  left: 50%;\n  border-radius: 5px;\n  transform: translate(-50%);\n  padding: 10px;\n  margin-bottom: 10px;\n  font-size: 1rem;\n  width: max-content;\n\n  color: ", ";\n  background: ", ";\n"], ["\n  position: fixed;\n  bottom: 0;\n  left: 50%;\n  border-radius: 5px;\n  transform: translate(-50%);\n  padding: 10px;\n  margin-bottom: 10px;\n  font-size: 1rem;\n  width: max-content;\n\n  color: ", ";\n  background: ", ";\n"])), function (props) { return props.color || "white"; }, function (props) { return props.bgColor || "#212529"; });
 /**
  *
  * @param {String} children rendered message
@@ -96,7 +105,7 @@ var Fixed = styled__default["default"].aside(templateObject_2$1 || (templateObje
  * @returns
  */
 var Message = function (_a) {
-    var children = _a.children, onClose = _a.onClose, _b = _a.ms, ms = _b === void 0 ? 2000 : _b, below = _a.below, bottom = _a.bottom, color = _a.color;
+    var children = _a.children, onClose = _a.onClose, _b = _a.ms, ms = _b === void 0 ? 2000 : _b, bottom = _a.bottom, color = _a.color, bgColor = _a.bgColor, position = _a.position, rest = __rest(_a, ["children", "onClose", "ms", "bottom", "color", "bgColor", "position"]);
     var timerRef = React__namespace.useRef(null);
     React__namespace.useEffect(function () {
         timerRef.current = setTimeout(onClose, ms);
@@ -104,15 +113,15 @@ var Message = function (_a) {
             clearTimeout(timerRef.current);
         };
     }, [ms, onClose]);
-    //if bottom is true, text is placed right below the containing element, like a button (must have position:relaitve CSS RULE)
-    if (below)
-        return React__namespace.createElement(Text, { color: color }, children);
+    //position can only be "top" | "right" | "bottom" | "left";
+    if (position)
+        return (React__namespace.createElement(Position, __assign({ bgColor: bgColor, color: color, position: position }, rest), children));
     //if fixed is true, the text is placed at the bottom of the page
     if (bottom)
-        return React__namespace.createElement(Fixed, { color: color }, children);
+        return (React__namespace.createElement(Fixed, __assign({ bgColor: bgColor, color: color }, rest), children));
     return React__namespace.createElement(React__namespace.Fragment, null, children);
 };
-var templateObject_1$3, templateObject_2$1;
+var templateObject_1$3, templateObject_2$1, templateObject_3$1, templateObject_4$1, templateObject_5$1, templateObject_6$1;
 
 var BackDropMotion = styled__default["default"](framerMotion.motion.div)(templateObject_1$2 || (templateObject_1$2 = __makeTemplateObject(["\n  position: fixed;\n  width: 100vw;\n  height: 100vh;\n  margin: 0;\n  top: 0;\n  left: 0;\n  background: #000000e1;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: ", ";\n"], ["\n  position: fixed;\n  width: 100vw;\n  height: 100vh;\n  margin: 0;\n  top: 0;\n  left: 0;\n  background: #000000e1;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: ", ";\n"])), function (props) { return props.zIndex || 10000; });
 var Backdrop = function (_a) {
@@ -144,19 +153,19 @@ var dropIn = {
     },
 };
 var Modal = function (_a) {
-    var handleClose = _a.handleClose, children = _a.children, color = _a.color;
+    var handleClose = _a.handleClose, children = _a.children, color = _a.color, rest = __rest(_a, ["handleClose", "children", "color"]);
     var handleClick = function (event) {
         event.stopPropagation(); //event will NOT bubble up to parent element
     };
     return (React__namespace.createElement(framerMotion.AnimatePresence, { exitBeforeEnter: true },
         React__namespace.createElement(Backdrop, { onClick: handleClose },
-            React__namespace.createElement(ModalMotion, { onClick: handleClick, variants: dropIn, initial: "hidden", animate: "visible", exit: "exit", color: color }, children))));
+            React__namespace.createElement(ModalMotion, __assign({ onClick: handleClick, variants: dropIn, initial: "hidden", animate: "visible", exit: "exit", color: color }, rest), children))));
 };
 var templateObject_1$1;
 
 var Wrapper = styled__default["default"].span(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  position: relative;\n  display: inline-block;\n  :hover .tooltiptext {\n    visibility: visible;\n    opacity: 1;\n  }\n"], ["\n  position: relative;\n  display: inline-block;\n  :hover .tooltiptext {\n    visibility: visible;\n    opacity: 1;\n  }\n"])));
-var Span = styled__default["default"].span(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n  visibility: hidden;\n  width: 100px;\n  background-color: #212529;\n  color: #fff;\n  text-align: center;\n  border-radius: 5px;\n  padding: 5px 0;\n  opacity: 0;\n  transition: opacity 0.8s ease-in-out;\n  ", "\n  ", "\n    ", "\n      ", "\n"], ["\n  visibility: hidden;\n  width: 100px;\n  background-color: #212529;\n  color: #fff;\n  text-align: center;\n  border-radius: 5px;\n  padding: 5px 0;\n  opacity: 0;\n  transition: opacity 0.8s ease-in-out;\n  ", "\n  ", "\n    ", "\n      ", "\n"])), function (props) {
-    return props.bottom && styled.css(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n      /* Position the tooltip */\n      position: absolute;\n      z-index: 1;\n      top: 100%;\n      left: 50%;\n      margin-left: -50px;\n    "], ["\n      /* Position the tooltip */\n      position: absolute;\n      z-index: 1;\n      top: 100%;\n      left: 50%;\n      margin-left: -50px;\n    "])));
+var Span = styled__default["default"].span(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n  visibility: hidden;\n  width: 100px;\n  background-color: #212529;\n  color: #fff;\n  text-align: center;\n  border-radius: 5px;\n  padding: 5px 0;\n  opacity: 0;\n  transition: opacity 0.8s ease-in-out;\n  /* BOTTOM */\n  ", "\n  /* TOP */\n  ", "\n    /* LEFT */\n    ", "\n      /* RIGHT */\n      ", "\n"], ["\n  visibility: hidden;\n  width: 100px;\n  background-color: #212529;\n  color: #fff;\n  text-align: center;\n  border-radius: 5px;\n  padding: 5px 0;\n  opacity: 0;\n  transition: opacity 0.8s ease-in-out;\n  /* BOTTOM */\n  ", "\n  /* TOP */\n  ", "\n    /* LEFT */\n    ", "\n      /* RIGHT */\n      ", "\n"])), function (props) {
+    return props.bottom && styled.css(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n      position: absolute;\n      z-index: 1;\n      top: 100%;\n      left: 50%;\n      margin-left: -50px;\n    "], ["\n      position: absolute;\n      z-index: 1;\n      top: 100%;\n      left: 50%;\n      margin-left: -50px;\n    "])));
 }, function (props) {
     return props.top && styled.css(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n      position: absolute;\n      z-index: 1;\n      bottom: 100%;\n      left: 50%;\n      margin-left: -50px;\n    "], ["\n      position: absolute;\n      z-index: 1;\n      bottom: 100%;\n      left: 50%;\n      margin-left: -50px;\n    "])));
 }, function (props) {
@@ -178,6 +187,107 @@ var Tooltip = function (_a) {
 };
 var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6;
 
+//returns an array with numbers with their floor
+var getFloor = function () {
+    var rest = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        rest[_i] = arguments[_i];
+    }
+    return rest.map(Math.floor);
+};
+//calculates actual available space from top, right, bottom, and left
+var calculateActualRect = function (rect, w, h) {
+    var l = rect.left, r = rect.right, t = rect.top, b = rect.bottom;
+    //gets the floor of all numbers
+    var _a = getFloor(l, r, t, b, w, h), left = _a[0], right = _a[1], top = _a[2], bottom = _a[3], width = _a[4], height = _a[5];
+    //calculates actual space available on the right side
+    var calcualtedRight = width - right;
+    //calculates actual space available below
+    var calculatedBottom = height - bottom;
+    return {
+        top: top,
+        right: calcualtedRight,
+        bottom: calculatedBottom,
+        left: left,
+    };
+};
+//returns which side has the most space available, if left:500px is the highest integer
+//then getPlacement returns left
+var getPlacement = function (_a) {
+    var top = _a.top, right = _a.right, bottom = _a.bottom, left = _a.left;
+    if (100 > left && right > 150)
+        return "right";
+    if (100 > right && left > 150)
+        return "left";
+    if (bottom > 200 && right > 150 && left > 150)
+        return "bottom";
+    if (right > 200 && top > 100 && bottom > 100)
+        return "right";
+    if (left > 200 && top > 100 && bottom > 100)
+        return "left";
+    var formattedRect = [
+        ["top", top],
+        ["right", right],
+        ["bottom", bottom],
+        ["left", left],
+    ];
+    return formattedRect.sort(function (_a, _b) {
+        _a[0]; var a = _a[1];
+        _b[0]; var b = _b[1];
+        return +b - +a;
+    })[0][0];
+};
+//returns placement like right, top, bottom, or left
+var calculatePlacement = function (rect, width, height) {
+    var adjustedSpace = calculateActualRect(rect, width, height);
+    return getPlacement(adjustedSpace);
+};
+
+var Clipboard = function (_a) {
+    var children = _a.children, toBeCopied = _a.toBeCopied, _b = _a.message, message = _b === void 0 ? "COPIED" : _b, rest = __rest(_a, ["children", "toBeCopied", "message"]);
+    //used to manage message state
+    var _c = kantanHooks.useToggle(false), open = _c.open, onOpen = _c.onOpen, onClose = _c.onClose;
+    //used to manage clipboard state
+    var _d = kantanHooks.useToggle(), copied = _d.open, toggle = _d.toggle;
+    //manages the copying operation
+    var _e = kantanHooks.useClipboard(toBeCopied, copied, onOpen), resolved = _e.resolved, rejected = _e.rejected, error = _e.error;
+    //has reference on span element
+    var spanRef = React__namespace.useRef(null);
+    //points at viewport height
+    var windowHeight = kantanHooks.useHeight({ current: window });
+    //points at viewport width
+    var windowWidth = kantanHooks.useWidth({ current: window });
+    //points at HTMLElement or null in initial render
+    var element = spanRef.current;
+    //points at DOMRect or null in initial render
+    var rect = element ? element.getBoundingClientRect() : element;
+    //points at placement i.e. what side has the most available space, like 'left'
+    var position = element
+        ? calculatePlacement(rect, windowWidth, windowHeight)
+        : null;
+    //controls the button text content
+    //the string "Copied" should logically never be evaluated, but still used as a safeguard.
+    var buttonText = open && resolved
+        ? message
+        : open && rejected
+            ? error.message || "Not copied"
+            : "Copied";
+    //if operation has rejected then error message might be longer
+    //so keep Message mounted for 4 seconds
+    var ms = resolved ? 1000 : rejected ? 4000 : 2000;
+    var handleClick = function () {
+        toggle();
+        onOpen();
+    };
+    return (React__namespace.createElement(React__namespace.Fragment, null,
+        React__namespace.createElement("span", __assign({ onClick: handleClick, style: {
+                position: "relative",
+            }, ref: spanRef }, rest),
+            children,
+            open ? (React__namespace.createElement(Message, { onClose: onClose, ms: ms, position: position, color: "white" }, buttonText)) : null)));
+};
+
+exports.Clipboard = Clipboard;
 exports.Message = Message;
 exports.Modal = Modal;
 exports.Tooltip = Tooltip;

@@ -11,5 +11,5 @@ interface ModalProps {
     children: React.ReactNode | string;
     color?: string;
 }
-declare const Modal: ({ handleClose, children, color }: ModalProps) => JSX.Element;
+declare const Modal: ({ handleClose, children, color, ...rest }: ModalProps) => JSX.Element;
 export default Modal;

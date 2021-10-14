@@ -3,7 +3,9 @@ interface MessageProps {
     children: string | React.ReactNode;
     onClose: () => void;
     ms: number;
+    position?: "top" | "right" | "bottom" | "left";
     below?: boolean;
+    bgColor?: string;
     color?: string;
     bottom?: boolean;
 }
@@ -17,5 +19,5 @@ interface MessageProps {
  * @param {String} color sets the background color for the bottom/fixed options
  * @returns
  */
-declare const Message: ({ children, onClose, ms, below, bottom, color, }: MessageProps) => JSX.Element;
+declare const Message: ({ children, onClose, ms, bottom, color, bgColor, position, ...rest }: MessageProps) => JSX.Element;
 export default Message;
