@@ -213,14 +213,17 @@ var calculateActualRect = function (rect, w, h) {
 };
 //returns which side has the most space available, if left:500px is the highest integer
 //then getPlacement returns left
+//NEEDS TO BE IMPROVED!
 var getPlacement = function (_a) {
     var top = _a.top, right = _a.right, bottom = _a.bottom, left = _a.left;
     if (100 > left && right > 150)
         return "right";
     if (100 > right && left > 150)
         return "left";
-    if (bottom > 200 && right > 150 && left > 150)
+    if (bottom > 150 && right > 150 && left > 150)
         return "bottom";
+    if (top > 150 && right > 150 && left > 150)
+        return "top";
     if (right > 200 && top > 100 && bottom > 100)
         return "right";
     if (left > 200 && top > 100 && bottom > 100)
