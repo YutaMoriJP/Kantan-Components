@@ -2,6 +2,17 @@ import * as React from "react";
 import styled, { css } from "styled-components";
 type StyledProps = { [key: string]: any };
 
+const Center = styled.span<StyledProps>`
+  position: fixed;
+  margin: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
+  background: ${props => props.bgColor || "#212529"};
+  color: ${props => props.color || "#ecf6ff"};
+  padding: 10px;
+`;
+
 const Position = styled.span<StyledProps>`
   width: fit-content;
   color: ${props => props.color || "white"};
@@ -73,15 +84,18 @@ interface MessageProps {
   bgColor?: string;
   color?: string;
   bottom?: boolean;
+  center?: boolean;
 }
 /**
  *
  * @param {String} children rendered message
  * @param {Function} onClose unmounts Message component
  * @param {Number} ms time value that closes the Message component
- * @param {Boolean} below optional value that renders the Message component right below the parent
+ * @param {Boolean} position optional value that renders the Message component on the given positional value
  * @param {Boolean} bottom optional value that renders the Message component at the bottom of the viewport
- * @param {String} color sets the background color for the bottom/fixed options
+ * @param {Boolean} center optional value that renders the Message component at the center of the viewport
+ * @param {String} color sets the text color for the bottom/position options
+ * @param {String} bgColor sets the background color for the bottom/position options
  * @returns
  */
 
@@ -93,6 +107,7 @@ const Message = ({
   color,
   bgColor,
   position,
+  center,
   ...rest
 }: MessageProps): JSX.Element => {
   const timerRef = React.useRef<NodeJS.Timeout>(null!);
@@ -103,12 +118,20 @@ const Message = ({
     };
   }, [ms, onClose]);
   //position can only be "top" | "right" | "bottom" | "left";
-  if (position)
+  if (position) {
     return (
       <Position bgColor={bgColor} color={color} position={position} {...rest}>
         {children}
       </Position>
     );
+  }
+  if (center) {
+    return (
+      <Center bgColor={bgColor} color={color} {...rest}>
+        {children}
+      </Center>
+    );
+  }
   //if fixed is true, the text is placed at the bottom of the page
   if (bottom)
     return (
