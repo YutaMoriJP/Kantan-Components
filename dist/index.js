@@ -79,20 +79,58 @@ function __rest(s, e) {
     return t;
 }
 
+function __awaiter(thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+}
+
+function __generator(thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+}
+
 function __makeTemplateObject(cooked, raw) {
     if (Object.defineProperty) { Object.defineProperty(cooked, "raw", { value: raw }); } else { cooked.raw = raw; }
     return cooked;
 }
 
-var Center = styled__default["default"].span(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["\n  position: fixed;\n  margin: 0;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%);\n  background: ", ";\n  color: ", ";\n  padding: 10px;\n"], ["\n  position: fixed;\n  margin: 0;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%);\n  background: ", ";\n  color: ", ";\n  padding: 10px;\n"])), function (props) { return props.bgColor || "#212529"; }, function (props) { return props.color || "#ecf6ff"; });
+var Center = styled__default["default"].span(templateObject_1$4 || (templateObject_1$4 = __makeTemplateObject(["\n  position: fixed;\n  margin: 0;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%);\n  background: ", ";\n  color: ", ";\n  padding: 10px;\n"], ["\n  position: fixed;\n  margin: 0;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%);\n  background: ", ";\n  color: ", ";\n  padding: 10px;\n"])), function (props) { return props.bgColor || "#212529"; }, function (props) { return props.color || "#ecf6ff"; });
 var Position = styled__default["default"].span(templateObject_6$1 || (templateObject_6$1 = __makeTemplateObject(["\n  width: fit-content;\n  color: ", ";\n  background: ", ";\n  opacity: 0.9;\n  text-align: center;\n  border-radius: 5px;\n  padding: 6px;\n  position: absolute;\n\n  /* BOTTOM */\n  ", "\n  /* TOP */\n  ", "\n    /* LEFT */\n    ", "\n      /* RIGHT */\n      ", "\n"], ["\n  width: fit-content;\n  color: ", ";\n  background: ", ";\n  opacity: 0.9;\n  text-align: center;\n  border-radius: 5px;\n  padding: 6px;\n  position: absolute;\n\n  /* BOTTOM */\n  ", "\n  /* TOP */\n  ", "\n    /* LEFT */\n    ", "\n      /* RIGHT */\n      ", "\n"])), function (props) { return props.color || "white"; }, function (props) { return props.bgColor || "#212529"; }, function (props) {
-    return props.position === "bottom" && styled.css(templateObject_2$1 || (templateObject_2$1 = __makeTemplateObject(["\n      z-index: 1;\n      top: 100%;\n      left: 50%;\n      margin-left: -50px;\n    "], ["\n      z-index: 1;\n      top: 100%;\n      left: 50%;\n      margin-left: -50px;\n    "])));
+    return props.position === "bottom" && styled.css(templateObject_2$2 || (templateObject_2$2 = __makeTemplateObject(["\n      z-index: 1;\n      top: 100%;\n      left: 50%;\n      margin-left: -50px;\n    "], ["\n      z-index: 1;\n      top: 100%;\n      left: 50%;\n      margin-left: -50px;\n    "])));
 }, function (props) {
-    return props.position === "top" && styled.css(templateObject_3$1 || (templateObject_3$1 = __makeTemplateObject(["\n      z-index: 1;\n      bottom: 100%;\n      left: 50%;\n      margin-left: -50px;\n    "], ["\n      z-index: 1;\n      bottom: 100%;\n      left: 50%;\n      margin-left: -50px;\n    "])));
+    return props.position === "top" && styled.css(templateObject_3$2 || (templateObject_3$2 = __makeTemplateObject(["\n      z-index: 1;\n      bottom: 100%;\n      left: 50%;\n      margin-left: -50px;\n    "], ["\n      z-index: 1;\n      bottom: 100%;\n      left: 50%;\n      margin-left: -50px;\n    "])));
 }, function (props) {
-    return props.position === "left" && styled.css(templateObject_4$1 || (templateObject_4$1 = __makeTemplateObject(["\n      position: absolute;\n      z-index: 1;\n      top: -5px;\n      right: 105%;\n    "], ["\n      position: absolute;\n      z-index: 1;\n      top: -5px;\n      right: 105%;\n    "])));
+    return props.position === "left" && styled.css(templateObject_4$2 || (templateObject_4$2 = __makeTemplateObject(["\n      position: absolute;\n      z-index: 1;\n      top: -5px;\n      right: 105%;\n    "], ["\n      position: absolute;\n      z-index: 1;\n      top: -5px;\n      right: 105%;\n    "])));
 }, function (props) {
-    return props.position === "right" && styled.css(templateObject_5$1 || (templateObject_5$1 = __makeTemplateObject(["\n      z-index: 1;\n      top: -5px;\n      left: 105%;\n    "], ["\n      z-index: 1;\n      top: -5px;\n      left: 105%;\n    "])));
+    return props.position === "right" && styled.css(templateObject_5$2 || (templateObject_5$2 = __makeTemplateObject(["\n      z-index: 1;\n      top: -5px;\n      left: 105%;\n    "], ["\n      z-index: 1;\n      top: -5px;\n      left: 105%;\n    "])));
 });
 var Fixed = styled__default["default"].span(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n  position: fixed;\n  bottom: 0;\n  left: 50%;\n  border-radius: 5px;\n  transform: translate(-50%);\n  padding: 10px;\n  margin-bottom: 10px;\n  font-size: 1rem;\n  width: max-content;\n\n  color: ", ";\n  background: ", ";\n"], ["\n  position: fixed;\n  bottom: 0;\n  left: 50%;\n  border-radius: 5px;\n  transform: translate(-50%);\n  padding: 10px;\n  margin-bottom: 10px;\n  font-size: 1rem;\n  width: max-content;\n\n  color: ", ";\n  background: ", ";\n"])), function (props) { return props.color || "white"; }, function (props) { return props.bgColor || "#212529"; });
 /**
@@ -128,16 +166,16 @@ var Message = function (_a) {
         return (React__namespace.createElement(Fixed, __assign({ bgColor: bgColor, color: color }, rest), children));
     return React__namespace.createElement(React__namespace.Fragment, null, children);
 };
-var templateObject_1$3, templateObject_2$1, templateObject_3$1, templateObject_4$1, templateObject_5$1, templateObject_6$1, templateObject_7;
+var templateObject_1$4, templateObject_2$2, templateObject_3$2, templateObject_4$2, templateObject_5$2, templateObject_6$1, templateObject_7;
 
-var BackDropMotion = styled__default["default"](framerMotion.motion.div)(templateObject_1$2 || (templateObject_1$2 = __makeTemplateObject(["\n  position: fixed;\n  width: 100vw;\n  height: 100vh;\n  margin: 0;\n  top: 0;\n  left: 0;\n  background: #000000e1;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: ", ";\n"], ["\n  position: fixed;\n  width: 100vw;\n  height: 100vh;\n  margin: 0;\n  top: 0;\n  left: 0;\n  background: #000000e1;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: ", ";\n"])), function (props) { return props.zIndex || 10000; });
+var BackDropMotion = styled__default["default"](framerMotion.motion.div)(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["\n  position: fixed;\n  width: 100vw;\n  height: 100vh;\n  margin: 0;\n  top: 0;\n  left: 0;\n  background: #000000e1;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: ", ";\n"], ["\n  position: fixed;\n  width: 100vw;\n  height: 100vh;\n  margin: 0;\n  top: 0;\n  left: 0;\n  background: #000000e1;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: ", ";\n"])), function (props) { return props.zIndex || 10000; });
 var Backdrop = function (_a) {
     var children = _a.children, onClick = _a.onClick, zIndex = _a.zIndex;
     return (React__namespace.createElement(BackDropMotion, { onClick: onClick, initial: { opacity: 0 }, animate: { opacity: 1 }, exit: { opacity: 0 }, zIndex: zIndex }, children));
 };
-var templateObject_1$2;
+var templateObject_1$3;
 
-var ModalMotion = styled__default["default"](framerMotion.motion.div)(templateObject_1$1 || (templateObject_1$1 = __makeTemplateObject(["\n  background: ", ";\n"], ["\n  background: ", ";\n"])), function (props) { return props.color; });
+var ModalMotion = styled__default["default"](framerMotion.motion.div)(templateObject_1$2 || (templateObject_1$2 = __makeTemplateObject(["\n  background: ", ";\n"], ["\n  background: ", ";\n"])), function (props) { return props.color; });
 //for animation
 var dropIn = {
     hidden: {
@@ -168,17 +206,17 @@ var Modal = function (_a) {
         React__namespace.createElement(Backdrop, { onClick: handleClose },
             React__namespace.createElement(ModalMotion, __assign({ onClick: handleClick, variants: dropIn, initial: "hidden", animate: "visible", exit: "exit", color: color }, rest), children))));
 };
-var templateObject_1$1;
+var templateObject_1$2;
 
-var Wrapper = styled__default["default"].span(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  position: relative;\n  display: inline-block;\n  :hover .tooltiptext {\n    visibility: visible;\n    opacity: 1;\n  }\n"], ["\n  position: relative;\n  display: inline-block;\n  :hover .tooltiptext {\n    visibility: visible;\n    opacity: 1;\n  }\n"])));
+var Wrapper = styled__default["default"].span(templateObject_1$1 || (templateObject_1$1 = __makeTemplateObject(["\n  position: relative;\n  display: inline-block;\n  :hover .tooltiptext {\n    visibility: visible;\n    opacity: 1;\n  }\n"], ["\n  position: relative;\n  display: inline-block;\n  :hover .tooltiptext {\n    visibility: visible;\n    opacity: 1;\n  }\n"])));
 var Span = styled__default["default"].span(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n  visibility: hidden;\n  width: 100px;\n  background-color: #212529;\n  color: #fff;\n  text-align: center;\n  border-radius: 5px;\n  padding: 5px 0;\n  opacity: 0;\n  transition: opacity 0.8s ease-in-out;\n  /* BOTTOM */\n  ", "\n  /* TOP */\n  ", "\n    /* LEFT */\n    ", "\n      /* RIGHT */\n      ", "\n"], ["\n  visibility: hidden;\n  width: 100px;\n  background-color: #212529;\n  color: #fff;\n  text-align: center;\n  border-radius: 5px;\n  padding: 5px 0;\n  opacity: 0;\n  transition: opacity 0.8s ease-in-out;\n  /* BOTTOM */\n  ", "\n  /* TOP */\n  ", "\n    /* LEFT */\n    ", "\n      /* RIGHT */\n      ", "\n"])), function (props) {
-    return props.bottom && styled.css(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n      position: absolute;\n      z-index: 1;\n      top: 100%;\n      left: 50%;\n      margin-left: -50px;\n    "], ["\n      position: absolute;\n      z-index: 1;\n      top: 100%;\n      left: 50%;\n      margin-left: -50px;\n    "])));
+    return props.bottom && styled.css(templateObject_2$1 || (templateObject_2$1 = __makeTemplateObject(["\n      position: absolute;\n      z-index: 1;\n      top: 100%;\n      left: 50%;\n      margin-left: -50px;\n    "], ["\n      position: absolute;\n      z-index: 1;\n      top: 100%;\n      left: 50%;\n      margin-left: -50px;\n    "])));
 }, function (props) {
-    return props.top && styled.css(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n      position: absolute;\n      z-index: 1;\n      bottom: 100%;\n      left: 50%;\n      margin-left: -50px;\n    "], ["\n      position: absolute;\n      z-index: 1;\n      bottom: 100%;\n      left: 50%;\n      margin-left: -50px;\n    "])));
+    return props.top && styled.css(templateObject_3$1 || (templateObject_3$1 = __makeTemplateObject(["\n      position: absolute;\n      z-index: 1;\n      bottom: 100%;\n      left: 50%;\n      margin-left: -50px;\n    "], ["\n      position: absolute;\n      z-index: 1;\n      bottom: 100%;\n      left: 50%;\n      margin-left: -50px;\n    "])));
 }, function (props) {
-    return props.left && styled.css(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n      position: absolute;\n      z-index: 1;\n      top: -5px;\n      right: 105%;\n    "], ["\n      position: absolute;\n      z-index: 1;\n      top: -5px;\n      right: 105%;\n    "])));
+    return props.left && styled.css(templateObject_4$1 || (templateObject_4$1 = __makeTemplateObject(["\n      position: absolute;\n      z-index: 1;\n      top: -5px;\n      right: 105%;\n    "], ["\n      position: absolute;\n      z-index: 1;\n      top: -5px;\n      right: 105%;\n    "])));
 }, function (props) {
-    return props.right && styled.css(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n      position: absolute;\n      z-index: 1;\n      top: -5px;\n      left: 105%;\n    "], ["\n      position: absolute;\n      z-index: 1;\n      top: -5px;\n      left: 105%;\n    "])));
+    return props.right && styled.css(templateObject_5$1 || (templateObject_5$1 = __makeTemplateObject(["\n      position: absolute;\n      z-index: 1;\n      top: -5px;\n      left: 105%;\n    "], ["\n      position: absolute;\n      z-index: 1;\n      top: -5px;\n      left: 105%;\n    "])));
 });
 var Tooltip = function (_a) {
     var children = _a.children, text = _a.text; _a.toolTipProps; var rest = __rest(_a, ["children", "text", "toolTipProps"]);
@@ -192,7 +230,7 @@ var Tooltip = function (_a) {
         children,
         React__namespace.createElement(Span, __assign({ className: "tooltiptext", "aria-hidden": hidden, "aria-label": text, bottom: defaultPosition }, rest), text)));
 };
-var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6;
+var templateObject_1$1, templateObject_2$1, templateObject_3$1, templateObject_4$1, templateObject_5$1, templateObject_6;
 
 //returns an array with numbers with their floor
 var getFloor = function () {
@@ -297,7 +335,163 @@ var Clipboard = function (_a) {
             open ? (React__namespace.createElement(Message, { onClose: onClose, ms: ms, position: position, color: "white" }, buttonText)) : null)));
 };
 
+var PointerEvent = styled__default["default"].span(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  text-decoration: none;\n  ", ";\n"], ["\n  text-decoration: none;\n  ", ";\n"])), function (props) {
+    return props.disabled && styled.css(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n      cursor: wait;\n    "], ["\n      cursor: wait;\n    "])));
+});
+var Link = styled__default["default"].a(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n  text-decoration: none;\n  color: inherit;\n  ", ";\n\n  ", ";\n"], ["\n  text-decoration: none;\n  color: inherit;\n  ", ";\n\n  ", ";\n"])), function (props) {
+    return props.disabled && styled.css(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n      pointer-events: none;\n    "], ["\n      pointer-events: none;\n    "])));
+}, function (props) {
+    return !props.disabled && styled.css(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n      pointer-events: auto;\n    "], ["\n      pointer-events: auto;\n    "])));
+});
+var initialState = {
+    status: "idle",
+    href: "",
+    error: null,
+};
+var reducer = function (state, action) {
+    switch (action.type) {
+        case "pending":
+            return { status: action.type, href: "", error: null };
+        case "resolved":
+            return { status: action.type, href: action.href, error: null };
+        case "rejected":
+            return { status: action.type, href: "", error: action.error };
+        default:
+            return state;
+    }
+};
+/**
+ *
+ * @param {String | Object} url - The `url` can be the endpoint of an API or a `Blob` object instance. See the examples to make sense of it.
+ * @param {String} fileName -Controls the file name, like `file.txt`. Note that the `extension` controls what kind of file it is. If the download content is an image, then using the `txt` extension will not work.
+ * @param {Boolean} wait - The `wait` prop controls whether you want the download link to be generated right after the component is mounted or not. Note that if it's not a `Blob` object, and the content is served across the network, then a HTTP request is sent. So it's up to you to wait for the request to be sent, which happens after a click event. If `wait` is true, then the download link is generated after a click event is fired. Default value is `true`.
+ * @param {String} pending -  The `pending` state controls what will be displayed while the network is happening. The default is `Loading...
+ * @param {String } children - The `children` prop controls what will be displayed after the download link is ready. The default is `Download ${fileName}
+ * @param {String} idle - If you pass the boolean value `true` to the `wait` prop, then the `idle` prop can be used to pass a default text value while status is `idle`. Something like `Generate download link` would make sense. The default is `Generate ${fileName} download link`.
+ * @param {Object} options - If the request can only be send by authroized users, like with the `Authorization` header or `app-id` header, then you can pass an option object, which will be passed as the second argument to the `fetch` API, like `fetch(url, option)`. So, your `options` object should look like `{method: "GET", headers: { Authorization: "Bearer ${API_KEY}" }}`.
+ **/
+var Download = function (_a) {
+    var url = _a.url, fileName = _a.fileName, _b = _a.wait, wait = _b === void 0 ? true : _b, _c = _a.pending, pending = _c === void 0 ? "Loading..." : _c, _d = _a.idle, idle = _d === void 0 ? "Generate " + fileName + " download link" : _d, _e = _a.children, children = _e === void 0 ? "Download: " + (fileName || "file") : _e, options = _a.options, onOpen = _a.onOpen, setMessageText = _a.setMessageText;
+    console.log("url", url);
+    var _f = React.useReducer(reducer, initialState), state = _f[0], dispatch = _f[1];
+    var status = state.status, error = state.error, href = state.href;
+    var _g = React.useState(wait), startwait = _g[0], setStartwait = _g[1];
+    //if options object is passed then use the passed object
+    var option = React.useMemo(function () {
+        return options
+            ? options
+            : {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json, image/*, text/*, charset=utf-8",
+                },
+            };
+    }, []);
+    var handleClick = function () {
+        setStartwait(false);
+    };
+    React.useEffect(function () {
+        var didCancel = false;
+        //no need to fetch since an URL is not passed
+        if (!url)
+            return;
+        //wait is set to true, so only fetch after a click event is fired
+        if (startwait)
+            return;
+        var controller = new AbortController();
+        var signal = controller.signal;
+        var downloadAsync = function () { return __awaiter(void 0, void 0, void 0, function () {
+            var href_1, res, blob, href_2, error_1;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 5, , 6]);
+                        if (!(typeof url === "object")) return [3 /*break*/, 1];
+                        dispatch({ type: "pending" });
+                        href_1 = URL.createObjectURL(url);
+                        if (!didCancel) {
+                            dispatch({ type: "resolved", href: href_1 });
+                        }
+                        return [3 /*break*/, 4];
+                    case 1:
+                        dispatch({ type: "pending" });
+                        return [4 /*yield*/, fetch(url, option)];
+                    case 2:
+                        res = _a.sent();
+                        if (!res.ok && !didCancel) {
+                            dispatch({
+                                type: "rejected",
+                                error: new Error("An error occured. Status code is " + res.status),
+                            });
+                            return [2 /*return*/];
+                        }
+                        return [4 /*yield*/, res.blob()];
+                    case 3:
+                        blob = _a.sent();
+                        href_2 = URL.createObjectURL(blob);
+                        //this is necessary to check that the component was NOT unmounted
+                        if (!didCancel) {
+                            //udate state
+                            dispatch({ type: "resolved", href: href_2 });
+                        }
+                        _a.label = 4;
+                    case 4:
+                        //check if onOpen is a function
+                        //could be a function that renders a message component like 'SUCCESS'
+                        if (typeof onOpen === "function")
+                            onOpen();
+                        //should be the message state rendered by the message component
+                        if (typeof setMessageText === "function")
+                            setMessageText({
+                                messageText: "Content is ready to be downloaded!",
+                                color: "seagreen",
+                            });
+                        return [3 /*break*/, 6];
+                    case 5:
+                        error_1 = _a.sent();
+                        //request is canceled - don't update state
+                        if (didCancel || signal.aborted) {
+                            return [2 /*return*/];
+                        }
+                        if (!didCancel) {
+                            dispatch({ type: "rejected", error: error_1 });
+                            //message state can be updated
+                            if (typeof setMessageText === "function")
+                                setMessageText({
+                                    messageText: "Error " + error_1.message,
+                                    color: "red",
+                                });
+                        }
+                        return [3 /*break*/, 6];
+                    case 6: return [2 /*return*/];
+                }
+            });
+        }); };
+        downloadAsync();
+        return function () {
+            URL.revokeObjectURL(href); //revoking the url object here allows for multiple downloads or else a network error will happen
+            didCancel = true;
+            controller.abort();
+        };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [url, onOpen, startwait]);
+    //while pending, content cannot be downloaded
+    var disabled = status === "idle" ? false : status === "pending" ? true : false;
+    var linkText = status === "resolved" ? (children) : status === "pending" ? (pending) : status === "idle" ? (idle) : status === "rejected" ? (React__namespace.createElement("span", { role: "alert" }, error.message || "Something went wrong")) : null;
+    var hrefProp = status === "idle" || status === "pending" || status === "rejected"
+        ? {}
+        : { href: href };
+    var downloadProp = status === "idle" || status === "pending"
+        ? {}
+        : { download: fileName || "file" };
+    return (React__namespace.createElement(React__namespace.Fragment, null,
+        React__namespace.createElement(PointerEvent, { disabled: disabled },
+            React__namespace.createElement(Link, __assign({ disabled: disabled, onClick: handleClick }, downloadProp, hrefProp), linkText))));
+};
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5;
+
 exports.Clipboard = Clipboard;
+exports.Download = Download;
 exports.Message = Message;
 exports.Modal = Modal;
 exports.Tooltip = Tooltip;
