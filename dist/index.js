@@ -343,6 +343,8 @@ var Link = styled__default["default"].a(templateObject_5 || (templateObject_5 = 
 }, function (props) {
     return !props.disabled && styled.css(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n      pointer-events: auto;\n    "], ["\n      pointer-events: auto;\n    "])));
 });
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5;
+
 var initialState = {
     status: "idle",
     href: "",
@@ -360,22 +362,13 @@ var reducer = function (state, action) {
             return state;
     }
 };
-/**
- *
- * @param {String | Object} url - The `url` can be the endpoint of an API or a `Blob` object instance. See the examples to make sense of it.
- * @param {String} fileName -Controls the file name, like `file.txt`. Note that the `extension` controls what kind of file it is. If the download content is an image, then using the `txt` extension will not work.
- * @param {Boolean} wait - The `wait` prop controls whether you want the download link to be generated right after the component is mounted or not. Note that if it's not a `Blob` object, and the content is served across the network, then a HTTP request is sent. So it's up to you to wait for the request to be sent, which happens after a click event. If `wait` is true, then the download link is generated after a click event is fired. Default value is `true`.
- * @param {String} pending -  The `pending` state controls what will be displayed while the network is happening. The default is `Loading...
- * @param {String } children - The `children` prop controls what will be displayed after the download link is ready. The default is `Download ${fileName}
- * @param {String} idle - If you pass the boolean value `true` to the `wait` prop, then the `idle` prop can be used to pass a default text value while status is `idle`. Something like `Generate download link` would make sense. The default is `Generate ${fileName} download link`.
- * @param {Object} options - If the request can only be send by authroized users, like with the `Authorization` header or `app-id` header, then you can pass an option object, which will be passed as the second argument to the `fetch` API, like `fetch(url, option)`. So, your `options` object should look like `{method: "GET", headers: { Authorization: "Bearer ${API_KEY}" }}`.
- **/
 var Download = function (_a) {
-    var url = _a.url, fileName = _a.fileName, _b = _a.wait, wait = _b === void 0 ? true : _b, _c = _a.pending, pending = _c === void 0 ? "Loading..." : _c, _d = _a.idle, idle = _d === void 0 ? "Generate " + fileName + " download link" : _d, _e = _a.children, children = _e === void 0 ? "Download: " + (fileName || "file") : _e, options = _a.options, onOpen = _a.onOpen, setMessageText = _a.setMessageText;
-    console.log("url", url);
+    var url = _a.url, _b = _a.fileName, fileName = _b === void 0 ? "file" : _b, setTextContent = _a.setTextContent, children = _a.children, _c = _a.wait, wait = _c === void 0 ? true : _c, _d = _a.pending, pending = _d === void 0 ? "Loading..." : _d, _e = _a.resolved, resolved = _e === void 0 ? "Download: " + (fileName || "file") : _e, options = _a.options, onOpen = _a.onOpen, setMessageText = _a.setMessageText;
+    //manages status, error, download link as href
     var _f = React.useReducer(reducer, initialState), state = _f[0], dispatch = _f[1];
     var status = state.status, error = state.error, href = state.href;
-    var _g = React.useState(wait), startwait = _g[0], setStartwait = _g[1];
+    //if true, download process is started AFTER click event, if false, starts after mounting
+    var _g = React.useState(wait), shouldWait = _g[0], setshouldWait = _g[1];
     //if options object is passed then use the passed object
     var option = React.useMemo(function () {
         return options
@@ -387,16 +380,17 @@ var Download = function (_a) {
                 },
             };
     }, []);
+    //sets wait to false and starts downloading
     var handleClick = function () {
-        setStartwait(false);
+        setshouldWait(false);
     };
     React.useEffect(function () {
         var didCancel = false;
         //no need to fetch since an URL is not passed
         if (!url)
             return;
-        //wait is set to true, so only fetch after a click event is fired
-        if (startwait)
+        //if shouldWait is true, then fetch request happens after click event
+        if (shouldWait)
             return;
         var controller = new AbortController();
         var signal = controller.signal;
@@ -405,20 +399,30 @@ var Download = function (_a) {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        _a.trys.push([0, 5, , 6]);
-                        if (!(typeof url === "object")) return [3 /*break*/, 1];
+                        _a.trys.push([0, 6, , 7]);
+                        if (!Blob.prototype.isPrototypeOf(url)) return [3 /*break*/, 1];
                         dispatch({ type: "pending" });
+                        //updates text content of DOM node, like HTMLButtonElement
+                        setTextContent(pending);
                         href_1 = URL.createObjectURL(url);
                         if (!didCancel) {
                             dispatch({ type: "resolved", href: href_1 });
+                            setTextContent(resolved);
                         }
-                        return [3 /*break*/, 4];
+                        return [3 /*break*/, 5];
                     case 1:
                         dispatch({ type: "pending" });
-                        return [4 /*yield*/, fetch(url, option)];
+                        //updates text content of DOM node, like HTMLButtonElement
+                        setTextContent(pending);
+                        return [4 /*yield*/, new Promise(function (res) { return setTimeout(function () { return res(1); }, 5000); })];
                     case 2:
+                        _a.sent();
+                        return [4 /*yield*/, fetch(url, option)];
+                    case 3:
                         res = _a.sent();
                         if (!res.ok && !didCancel) {
+                            //updates text content of DOM node, like HTMLButtonElement
+                            setTextContent("An error occured. Status code is " + res.status);
                             dispatch({
                                 type: "rejected",
                                 error: new Error("An error occured. Status code is " + res.status),
@@ -426,16 +430,18 @@ var Download = function (_a) {
                             return [2 /*return*/];
                         }
                         return [4 /*yield*/, res.blob()];
-                    case 3:
+                    case 4:
                         blob = _a.sent();
                         href_2 = URL.createObjectURL(blob);
                         //this is necessary to check that the component was NOT unmounted
                         if (!didCancel) {
+                            //updates text content of DOM node, like HTMLButtonElement
+                            setTextContent(resolved);
                             //udate state
                             dispatch({ type: "resolved", href: href_2 });
                         }
-                        _a.label = 4;
-                    case 4:
+                        _a.label = 5;
+                    case 5:
                         //check if onOpen is a function
                         //could be a function that renders a message component like 'SUCCESS'
                         if (typeof onOpen === "function")
@@ -446,14 +452,16 @@ var Download = function (_a) {
                                 messageText: "Content is ready to be downloaded!",
                                 color: "seagreen",
                             });
-                        return [3 /*break*/, 6];
-                    case 5:
+                        return [3 /*break*/, 7];
+                    case 6:
                         error_1 = _a.sent();
                         //request is canceled - don't update state
                         if (didCancel || signal.aborted) {
                             return [2 /*return*/];
                         }
                         if (!didCancel) {
+                            //updates text content of DOM node, like HTMLButtonElement
+                            setTextContent(error_1.message || "An error occured. Try refreshing the page.");
                             dispatch({ type: "rejected", error: error_1 });
                             //message state can be updated
                             if (typeof setMessageText === "function")
@@ -462,8 +470,8 @@ var Download = function (_a) {
                                     color: "red",
                                 });
                         }
-                        return [3 /*break*/, 6];
-                    case 6: return [2 /*return*/];
+                        return [3 /*break*/, 7];
+                    case 7: return [2 /*return*/];
                 }
             });
         }); };
@@ -474,10 +482,9 @@ var Download = function (_a) {
             controller.abort();
         };
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [url, onOpen, startwait]);
-    //while pending, content cannot be downloaded
+    }, [url, onOpen, shouldWait]);
+    //while pending, content cannot be downloaded, sets CSS declaration - pointer:event: none
     var disabled = status === "idle" ? false : status === "pending" ? true : false;
-    var linkText = status === "resolved" ? (children) : status === "pending" ? (pending) : status === "idle" ? (idle) : status === "rejected" ? (React__namespace.createElement("span", { role: "alert" }, error.message || "Something went wrong")) : null;
     var hrefProp = status === "idle" || status === "pending" || status === "rejected"
         ? {}
         : { href: href };
@@ -486,9 +493,9 @@ var Download = function (_a) {
         : { download: fileName || "file" };
     return (React__namespace.createElement(React__namespace.Fragment, null,
         React__namespace.createElement(PointerEvent, { disabled: disabled },
-            React__namespace.createElement(Link, __assign({ disabled: disabled, onClick: handleClick }, downloadProp, hrefProp), linkText))));
+            React__namespace.createElement(Link, __assign({ disabled: disabled, onClick: handleClick }, downloadProp, hrefProp), children)),
+        status === "rejected" ? (React__namespace.createElement("p", { role: "alert" }, error.message || "Error. Try refreshing the page.")) : null));
 };
-var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5;
 
 exports.Clipboard = Clipboard;
 exports.Download = Download;
