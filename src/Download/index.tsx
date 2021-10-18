@@ -123,7 +123,6 @@ const Download = ({
           dispatch({ type: "pending" });
           //updates text content of DOM node, like HTMLButtonElement
           setTextContent(pending);
-          await new Promise(res => setTimeout(() => res(1), 5000));
 
           const res = await fetch(url as string, option);
           if (!res.ok && !didCancel) {
