@@ -1,18 +1,17 @@
 import styled, { css } from "styled-components";
 import * as React from "react";
 
-type StyledProps = { [prop: string]: any };
+type StyledProps = {
+  [prop: string]: any;
+  cursor: "help" | "wait" | "crosshair" | "not-allowed" | "zoom-in" | "grab";
+};
 
-const PointerEvent = styled.span<StyledProps>`
+const Cursor = styled.span<StyledProps>`
   text-decoration: none;
-  ${props =>
-    props.disabled &&
-    css`
-      cursor: wait;
-    `};
+  cursor: ${props => (props.disabled ? props.cursor || "not-allowed" : "auto")};
 `;
 
-const Link = styled.a<StyledProps>`
+const PointerEvent = styled.span<StyledProps>`
   text-decoration: none;
   color: inherit;
   ${props =>
@@ -28,17 +27,23 @@ const Link = styled.a<StyledProps>`
 `;
 
 type PointerProps = {
-  as: "a" | "span" | "div";
   disabled: boolean;
-};
+  children: React.ReactNode;
+  cursor: "help" | "wait" | "crosshair" | "not-allowed" | "zoom-in" | "grab";
+} & React.ComponentProps<"span">;
 
-const Pointer = ({ as = "a", disabled }: PointerProps) => {
+const Pointer = ({
+  disabled,
+  children,
+  cursor = "not-allowed",
+  ...rest
+}: PointerProps): JSX.Element => {
   return (
-    <>
-      <PointerEvent>
-        <Link disabled={disabled} as={as}></Link>
+    <Cursor disabled={disabled} cursor={cursor}>
+      <PointerEvent disabled={disabled} {...rest}>
+        {children}
       </PointerEvent>
-    </>
+    </Cursor>
   );
 };
 

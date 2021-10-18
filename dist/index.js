@@ -122,13 +122,13 @@ function __makeTemplateObject(cooked, raw) {
     return cooked;
 }
 
-var Center = styled__default["default"].span(templateObject_1$4 || (templateObject_1$4 = __makeTemplateObject(["\n  position: fixed;\n  margin: 0;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%);\n  background: ", ";\n  color: ", ";\n  padding: 10px;\n"], ["\n  position: fixed;\n  margin: 0;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%);\n  background: ", ";\n  color: ", ";\n  padding: 10px;\n"])), function (props) { return props.bgColor || "#212529"; }, function (props) { return props.color || "#ecf6ff"; });
+var Center = styled__default["default"].span(templateObject_1$5 || (templateObject_1$5 = __makeTemplateObject(["\n  position: fixed;\n  margin: 0;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%);\n  background: ", ";\n  color: ", ";\n  padding: 10px;\n"], ["\n  position: fixed;\n  margin: 0;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%);\n  background: ", ";\n  color: ", ";\n  padding: 10px;\n"])), function (props) { return props.bgColor || "#212529"; }, function (props) { return props.color || "#ecf6ff"; });
 var Position = styled__default["default"].span(templateObject_6$1 || (templateObject_6$1 = __makeTemplateObject(["\n  width: fit-content;\n  color: ", ";\n  background: ", ";\n  opacity: 0.9;\n  text-align: center;\n  border-radius: 5px;\n  padding: 6px;\n  position: absolute;\n\n  /* BOTTOM */\n  ", "\n  /* TOP */\n  ", "\n    /* LEFT */\n    ", "\n      /* RIGHT */\n      ", "\n"], ["\n  width: fit-content;\n  color: ", ";\n  background: ", ";\n  opacity: 0.9;\n  text-align: center;\n  border-radius: 5px;\n  padding: 6px;\n  position: absolute;\n\n  /* BOTTOM */\n  ", "\n  /* TOP */\n  ", "\n    /* LEFT */\n    ", "\n      /* RIGHT */\n      ", "\n"])), function (props) { return props.color || "white"; }, function (props) { return props.bgColor || "#212529"; }, function (props) {
-    return props.position === "bottom" && styled.css(templateObject_2$2 || (templateObject_2$2 = __makeTemplateObject(["\n      z-index: 1;\n      top: 100%;\n      left: 50%;\n      margin-left: -50px;\n    "], ["\n      z-index: 1;\n      top: 100%;\n      left: 50%;\n      margin-left: -50px;\n    "])));
+    return props.position === "bottom" && styled.css(templateObject_2$3 || (templateObject_2$3 = __makeTemplateObject(["\n      z-index: 1;\n      top: 100%;\n      left: 50%;\n      margin-left: -50px;\n    "], ["\n      z-index: 1;\n      top: 100%;\n      left: 50%;\n      margin-left: -50px;\n    "])));
 }, function (props) {
-    return props.position === "top" && styled.css(templateObject_3$2 || (templateObject_3$2 = __makeTemplateObject(["\n      z-index: 1;\n      bottom: 100%;\n      left: 50%;\n      margin-left: -50px;\n    "], ["\n      z-index: 1;\n      bottom: 100%;\n      left: 50%;\n      margin-left: -50px;\n    "])));
+    return props.position === "top" && styled.css(templateObject_3$3 || (templateObject_3$3 = __makeTemplateObject(["\n      z-index: 1;\n      bottom: 100%;\n      left: 50%;\n      margin-left: -50px;\n    "], ["\n      z-index: 1;\n      bottom: 100%;\n      left: 50%;\n      margin-left: -50px;\n    "])));
 }, function (props) {
-    return props.position === "left" && styled.css(templateObject_4$2 || (templateObject_4$2 = __makeTemplateObject(["\n      position: absolute;\n      z-index: 1;\n      top: -5px;\n      right: 105%;\n    "], ["\n      position: absolute;\n      z-index: 1;\n      top: -5px;\n      right: 105%;\n    "])));
+    return props.position === "left" && styled.css(templateObject_4$3 || (templateObject_4$3 = __makeTemplateObject(["\n      position: absolute;\n      z-index: 1;\n      top: -5px;\n      right: 105%;\n    "], ["\n      position: absolute;\n      z-index: 1;\n      top: -5px;\n      right: 105%;\n    "])));
 }, function (props) {
     return props.position === "right" && styled.css(templateObject_5$2 || (templateObject_5$2 = __makeTemplateObject(["\n      z-index: 1;\n      top: -5px;\n      left: 105%;\n    "], ["\n      z-index: 1;\n      top: -5px;\n      left: 105%;\n    "])));
 });
@@ -166,16 +166,16 @@ var Message = function (_a) {
         return (React__namespace.createElement(Fixed, __assign({ bgColor: bgColor, color: color }, rest), children));
     return React__namespace.createElement(React__namespace.Fragment, null, children);
 };
-var templateObject_1$4, templateObject_2$2, templateObject_3$2, templateObject_4$2, templateObject_5$2, templateObject_6$1, templateObject_7;
+var templateObject_1$5, templateObject_2$3, templateObject_3$3, templateObject_4$3, templateObject_5$2, templateObject_6$1, templateObject_7;
 
-var BackDropMotion = styled__default["default"](framerMotion.motion.div)(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["\n  position: fixed;\n  width: 100vw;\n  height: 100vh;\n  margin: 0;\n  top: 0;\n  left: 0;\n  background: #000000e1;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: ", ";\n"], ["\n  position: fixed;\n  width: 100vw;\n  height: 100vh;\n  margin: 0;\n  top: 0;\n  left: 0;\n  background: #000000e1;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: ", ";\n"])), function (props) { return props.zIndex || 10000; });
+var BackDropMotion = styled__default["default"](framerMotion.motion.div)(templateObject_1$4 || (templateObject_1$4 = __makeTemplateObject(["\n  position: fixed;\n  width: 100vw;\n  height: 100vh;\n  margin: 0;\n  top: 0;\n  left: 0;\n  background: #000000e1;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: ", ";\n"], ["\n  position: fixed;\n  width: 100vw;\n  height: 100vh;\n  margin: 0;\n  top: 0;\n  left: 0;\n  background: #000000e1;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: ", ";\n"])), function (props) { return props.zIndex || 10000; });
 var Backdrop = function (_a) {
     var children = _a.children, onClick = _a.onClick, zIndex = _a.zIndex;
     return (React__namespace.createElement(BackDropMotion, { onClick: onClick, initial: { opacity: 0 }, animate: { opacity: 1 }, exit: { opacity: 0 }, zIndex: zIndex }, children));
 };
-var templateObject_1$3;
+var templateObject_1$4;
 
-var ModalMotion = styled__default["default"](framerMotion.motion.div)(templateObject_1$2 || (templateObject_1$2 = __makeTemplateObject(["\n  background: ", ";\n"], ["\n  background: ", ";\n"])), function (props) { return props.color; });
+var ModalMotion = styled__default["default"](framerMotion.motion.div)(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["\n  background: ", ";\n"], ["\n  background: ", ";\n"])), function (props) { return props.color; });
 //for animation
 var dropIn = {
     hidden: {
@@ -206,15 +206,15 @@ var Modal = function (_a) {
         React__namespace.createElement(Backdrop, { onClick: handleClose },
             React__namespace.createElement(ModalMotion, __assign({ onClick: handleClick, variants: dropIn, initial: "hidden", animate: "visible", exit: "exit", color: color }, rest), children))));
 };
-var templateObject_1$2;
+var templateObject_1$3;
 
-var Wrapper = styled__default["default"].span(templateObject_1$1 || (templateObject_1$1 = __makeTemplateObject(["\n  position: relative;\n  display: inline-block;\n  :hover .tooltiptext {\n    visibility: visible;\n    opacity: 1;\n  }\n"], ["\n  position: relative;\n  display: inline-block;\n  :hover .tooltiptext {\n    visibility: visible;\n    opacity: 1;\n  }\n"])));
+var Wrapper = styled__default["default"].span(templateObject_1$2 || (templateObject_1$2 = __makeTemplateObject(["\n  position: relative;\n  display: inline-block;\n  :hover .tooltiptext {\n    visibility: visible;\n    opacity: 1;\n  }\n"], ["\n  position: relative;\n  display: inline-block;\n  :hover .tooltiptext {\n    visibility: visible;\n    opacity: 1;\n  }\n"])));
 var Span = styled__default["default"].span(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n  visibility: hidden;\n  width: 100px;\n  background-color: #212529;\n  color: #fff;\n  text-align: center;\n  border-radius: 5px;\n  padding: 5px 0;\n  opacity: 0;\n  transition: opacity 0.8s ease-in-out;\n  /* BOTTOM */\n  ", "\n  /* TOP */\n  ", "\n    /* LEFT */\n    ", "\n      /* RIGHT */\n      ", "\n"], ["\n  visibility: hidden;\n  width: 100px;\n  background-color: #212529;\n  color: #fff;\n  text-align: center;\n  border-radius: 5px;\n  padding: 5px 0;\n  opacity: 0;\n  transition: opacity 0.8s ease-in-out;\n  /* BOTTOM */\n  ", "\n  /* TOP */\n  ", "\n    /* LEFT */\n    ", "\n      /* RIGHT */\n      ", "\n"])), function (props) {
-    return props.bottom && styled.css(templateObject_2$1 || (templateObject_2$1 = __makeTemplateObject(["\n      position: absolute;\n      z-index: 1;\n      top: 100%;\n      left: 50%;\n      margin-left: -50px;\n    "], ["\n      position: absolute;\n      z-index: 1;\n      top: 100%;\n      left: 50%;\n      margin-left: -50px;\n    "])));
+    return props.bottom && styled.css(templateObject_2$2 || (templateObject_2$2 = __makeTemplateObject(["\n      position: absolute;\n      z-index: 1;\n      top: 100%;\n      left: 50%;\n      margin-left: -50px;\n    "], ["\n      position: absolute;\n      z-index: 1;\n      top: 100%;\n      left: 50%;\n      margin-left: -50px;\n    "])));
 }, function (props) {
-    return props.top && styled.css(templateObject_3$1 || (templateObject_3$1 = __makeTemplateObject(["\n      position: absolute;\n      z-index: 1;\n      bottom: 100%;\n      left: 50%;\n      margin-left: -50px;\n    "], ["\n      position: absolute;\n      z-index: 1;\n      bottom: 100%;\n      left: 50%;\n      margin-left: -50px;\n    "])));
+    return props.top && styled.css(templateObject_3$2 || (templateObject_3$2 = __makeTemplateObject(["\n      position: absolute;\n      z-index: 1;\n      bottom: 100%;\n      left: 50%;\n      margin-left: -50px;\n    "], ["\n      position: absolute;\n      z-index: 1;\n      bottom: 100%;\n      left: 50%;\n      margin-left: -50px;\n    "])));
 }, function (props) {
-    return props.left && styled.css(templateObject_4$1 || (templateObject_4$1 = __makeTemplateObject(["\n      position: absolute;\n      z-index: 1;\n      top: -5px;\n      right: 105%;\n    "], ["\n      position: absolute;\n      z-index: 1;\n      top: -5px;\n      right: 105%;\n    "])));
+    return props.left && styled.css(templateObject_4$2 || (templateObject_4$2 = __makeTemplateObject(["\n      position: absolute;\n      z-index: 1;\n      top: -5px;\n      right: 105%;\n    "], ["\n      position: absolute;\n      z-index: 1;\n      top: -5px;\n      right: 105%;\n    "])));
 }, function (props) {
     return props.right && styled.css(templateObject_5$1 || (templateObject_5$1 = __makeTemplateObject(["\n      position: absolute;\n      z-index: 1;\n      top: -5px;\n      left: 105%;\n    "], ["\n      position: absolute;\n      z-index: 1;\n      top: -5px;\n      left: 105%;\n    "])));
 });
@@ -230,7 +230,7 @@ var Tooltip = function (_a) {
         children,
         React__namespace.createElement(Span, __assign({ className: "tooltiptext", "aria-hidden": hidden, "aria-label": text, bottom: defaultPosition }, rest), text)));
 };
-var templateObject_1$1, templateObject_2$1, templateObject_3$1, templateObject_4$1, templateObject_5$1, templateObject_6;
+var templateObject_1$2, templateObject_2$2, templateObject_3$2, templateObject_4$2, templateObject_5$1, templateObject_6;
 
 //returns an array with numbers with their floor
 var getFloor = function () {
@@ -335,15 +335,15 @@ var Clipboard = function (_a) {
             open ? (React__namespace.createElement(Message, { onClose: onClose, ms: ms, position: position, color: "white" }, buttonText)) : null)));
 };
 
-var PointerEvent = styled__default["default"].span(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  text-decoration: none;\n  ", ";\n"], ["\n  text-decoration: none;\n  ", ";\n"])), function (props) {
-    return props.disabled && styled.css(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n      cursor: wait;\n    "], ["\n      cursor: wait;\n    "])));
+var PointerEvent$1 = styled__default["default"].span(templateObject_2$1 || (templateObject_2$1 = __makeTemplateObject(["\n  text-decoration: none;\n  ", ";\n"], ["\n  text-decoration: none;\n  ", ";\n"])), function (props) {
+    return props.disabled && styled.css(templateObject_1$1 || (templateObject_1$1 = __makeTemplateObject(["\n      cursor: wait;\n    "], ["\n      cursor: wait;\n    "])));
 });
 var Link = styled__default["default"].a(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n  text-decoration: none;\n  color: inherit;\n  ", ";\n\n  ", ";\n"], ["\n  text-decoration: none;\n  color: inherit;\n  ", ";\n\n  ", ";\n"])), function (props) {
-    return props.disabled && styled.css(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n      pointer-events: none;\n    "], ["\n      pointer-events: none;\n    "])));
+    return props.disabled && styled.css(templateObject_3$1 || (templateObject_3$1 = __makeTemplateObject(["\n      pointer-events: none;\n    "], ["\n      pointer-events: none;\n    "])));
 }, function (props) {
-    return !props.disabled && styled.css(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n      pointer-events: auto;\n    "], ["\n      pointer-events: auto;\n    "])));
+    return !props.disabled && styled.css(templateObject_4$1 || (templateObject_4$1 = __makeTemplateObject(["\n      pointer-events: auto;\n    "], ["\n      pointer-events: auto;\n    "])));
 });
-var templateObject_1, templateObject_2, templateObject_3, templateObject_4, templateObject_5;
+var templateObject_1$1, templateObject_2$1, templateObject_3$1, templateObject_4$1, templateObject_5;
 
 var initialState = {
     status: "idle",
@@ -492,13 +492,27 @@ var Download = function (_a) {
         ? {}
         : { download: fileName || "file" };
     return (React__namespace.createElement(React__namespace.Fragment, null,
-        React__namespace.createElement(PointerEvent, { disabled: disabled },
+        React__namespace.createElement(PointerEvent$1, { disabled: disabled },
             React__namespace.createElement(Link, __assign({ disabled: disabled, onClick: handleClick }, downloadProp, hrefProp), children)),
         status === "rejected" ? (React__namespace.createElement("p", { role: "alert" }, error.message || "Error. Try refreshing the page.")) : null));
 };
+
+var Cursor = styled__default["default"].span(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  text-decoration: none;\n  cursor: ", ";\n"], ["\n  text-decoration: none;\n  cursor: ", ";\n"])), function (props) { return (props.disabled ? props.cursor || "not-allowed" : "auto"); });
+var PointerEvent = styled__default["default"].span(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  text-decoration: none;\n  color: inherit;\n  ", ";\n  ", ";\n"], ["\n  text-decoration: none;\n  color: inherit;\n  ", ";\n  ", ";\n"])), function (props) {
+    return props.disabled && styled.css(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n      pointer-events: none;\n    "], ["\n      pointer-events: none;\n    "])));
+}, function (props) {
+    return !props.disabled && styled.css(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n      pointer-events: auto;\n    "], ["\n      pointer-events: auto;\n    "])));
+});
+var Pointer = function (_a) {
+    var disabled = _a.disabled, children = _a.children, _b = _a.cursor, cursor = _b === void 0 ? "not-allowed" : _b, rest = __rest(_a, ["disabled", "children", "cursor"]);
+    return (React__namespace.createElement(Cursor, { disabled: disabled, cursor: cursor },
+        React__namespace.createElement(PointerEvent, __assign({ disabled: disabled }, rest), children)));
+};
+var templateObject_1, templateObject_2, templateObject_3, templateObject_4;
 
 exports.Clipboard = Clipboard;
 exports.Download = Download;
 exports.Message = Message;
 exports.Modal = Modal;
+exports.Pointer = Pointer;
 exports.Tooltip = Tooltip;
