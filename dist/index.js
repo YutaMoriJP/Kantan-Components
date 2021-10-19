@@ -399,7 +399,7 @@ var Download = function (_a) {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        _a.trys.push([0, 6, , 7]);
+                        _a.trys.push([0, 5, , 6]);
                         if (!Blob.prototype.isPrototypeOf(url)) return [3 /*break*/, 1];
                         dispatch({ type: "pending" });
                         //updates text content of DOM node, like HTMLButtonElement
@@ -409,16 +409,13 @@ var Download = function (_a) {
                             dispatch({ type: "resolved", href: href_1 });
                             setTextContent(resolved);
                         }
-                        return [3 /*break*/, 5];
+                        return [3 /*break*/, 4];
                     case 1:
                         dispatch({ type: "pending" });
                         //updates text content of DOM node, like HTMLButtonElement
                         setTextContent(pending);
-                        return [4 /*yield*/, new Promise(function (res) { return setTimeout(function () { return res(1); }, 5000); })];
-                    case 2:
-                        _a.sent();
                         return [4 /*yield*/, fetch(url, option)];
-                    case 3:
+                    case 2:
                         res = _a.sent();
                         if (!res.ok && !didCancel) {
                             //updates text content of DOM node, like HTMLButtonElement
@@ -430,7 +427,7 @@ var Download = function (_a) {
                             return [2 /*return*/];
                         }
                         return [4 /*yield*/, res.blob()];
-                    case 4:
+                    case 3:
                         blob = _a.sent();
                         href_2 = URL.createObjectURL(blob);
                         //this is necessary to check that the component was NOT unmounted
@@ -440,8 +437,8 @@ var Download = function (_a) {
                             //udate state
                             dispatch({ type: "resolved", href: href_2 });
                         }
-                        _a.label = 5;
-                    case 5:
+                        _a.label = 4;
+                    case 4:
                         //check if onOpen is a function
                         //could be a function that renders a message component like 'SUCCESS'
                         if (typeof onOpen === "function")
@@ -452,8 +449,8 @@ var Download = function (_a) {
                                 messageText: "Content is ready to be downloaded!",
                                 color: "seagreen",
                             });
-                        return [3 /*break*/, 7];
-                    case 6:
+                        return [3 /*break*/, 6];
+                    case 5:
                         error_1 = _a.sent();
                         //request is canceled - don't update state
                         if (didCancel || signal.aborted) {
@@ -470,8 +467,8 @@ var Download = function (_a) {
                                     color: "red",
                                 });
                         }
-                        return [3 /*break*/, 7];
-                    case 7: return [2 /*return*/];
+                        return [3 /*break*/, 6];
+                    case 6: return [2 /*return*/];
                 }
             });
         }); };
