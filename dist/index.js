@@ -204,7 +204,7 @@ var Modal = function (_a) {
     };
     return (React__namespace.createElement(framerMotion.AnimatePresence, { exitBeforeEnter: true },
         React__namespace.createElement(Backdrop, { onClick: handleClose },
-            React__namespace.createElement(ModalMotion, __assign({ onClick: handleClick, variants: dropIn, initial: "hidden", animate: "visible", exit: "exit", color: color }, rest), children))));
+            React__namespace.createElement(ModalMotion, __assign({ "aria-modal": true, role: "dialog", tabIndex: -1, onClick: handleClick, variants: dropIn, initial: "hidden", animate: "visible", exit: "exit", color: color }, rest), children))));
 };
 var templateObject_1$4;
 
@@ -502,7 +502,7 @@ var PointerEvent = styled__default["default"].span(templateObject_4 || (template
 });
 var Pointer = function (_a) {
     var disabled = _a.disabled, children = _a.children, _b = _a.cursor, cursor = _b === void 0 ? "not-allowed" : _b, rest = __rest(_a, ["disabled", "children", "cursor"]);
-    return (React__namespace.createElement(Cursor, { disabled: disabled, cursor: cursor },
+    return (React__namespace.createElement(Cursor, { "aria-disabled": disabled, disabled: disabled, cursor: cursor },
         React__namespace.createElement(PointerEvent, __assign({ disabled: disabled }, rest), children)));
 };
 var templateObject_1$1, templateObject_2$1, templateObject_3, templateObject_4;

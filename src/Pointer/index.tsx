@@ -39,7 +39,7 @@ const Pointer = ({
   ...rest
 }: PointerProps): JSX.Element => {
   return (
-    <Cursor disabled={disabled} cursor={cursor}>
+    <Cursor aria-disabled={disabled} disabled={disabled} cursor={cursor}>
       <PointerEvent disabled={disabled} {...rest}>
         {children}
       </PointerEvent>

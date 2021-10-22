@@ -57,6 +57,9 @@ const Modal = ({
     <AnimatePresence exitBeforeEnter>
       <Backdrop onClick={handleClose}>
         <ModalMotion
+          aria-modal={true}
+          role="dialog"
+          tabIndex={-1}
           onClick={handleClick}
           variants={dropIn}
           initial="hidden"
