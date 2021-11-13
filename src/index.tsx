@@ -5,5 +5,17 @@ import Clipboard from "./Clipboard";
 import Download from "./Download";
 import Pointer from "./Pointer";
 import Fade from "./Fade";
+import Dropdown from "./Dropdown";
+import Checkbox from "./Checkbox";
 
-export { Message, Modal, Tooltip, Clipboard, Download, Pointer, Fade };
+export {
+  Message,
+  Modal,
+  Tooltip,
+  Clipboard,
+  Download,
+  Pointer,
+  Fade,
+  Dropdown,
+  Checkbox,
+};
