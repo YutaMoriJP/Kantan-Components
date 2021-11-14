@@ -5,7 +5,7 @@ import Clipboard from "./Clipboard";
 import Download from "./Download";
 import Pointer from "./Pointer";
 import Fade from "./Fade";
-import Dropdown from "./Dropdown";
+import MainDropdown from "./Dropdown";
 import Checkbox from "./Checkbox";
 
 export {
@@ -16,6 +16,6 @@ export {
   Download,
   Pointer,
   Fade,
-  Dropdown,
+  MainDropdown,
   Checkbox,
 };

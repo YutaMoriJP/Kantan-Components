@@ -539,22 +539,58 @@ var colorTokens = {
     light: "#f3f0ff",
 };
 var BaseStyle = styled.css(templateObject_1$1 || (templateObject_1$1 = __makeTemplateObject(["\n  all: unset;\n  font-size: 13px;\n  line-height: 1;\n  border-radius: 3px;\n  display: flex;\n  align-items: center;\n  height: 25px;\n  padding: 0 5px;\n  position: relative;\n  padding-left: 25px;\n  color: ", ";\n  :focus {\n    background: ", ";\n    color: ", ";\n  }\n  &[data-disabled] {\n    color: grey !important;\n    opacity: 0.5;\n  }\n"], ["\n  all: unset;\n  font-size: 13px;\n  line-height: 1;\n  border-radius: 3px;\n  display: flex;\n  align-items: center;\n  height: 25px;\n  padding: 0 5px;\n  position: relative;\n  padding-left: 25px;\n  color: ", ";\n  :focus {\n    background: ", ";\n    color: ", ";\n  }\n  &[data-disabled] {\n    color: grey !important;\n    opacity: 0.5;\n  }\n"])), colorTokens.medium, colorTokens.dark, colorTokens.light);
-styled__default["default"](DropdownMenuPrimitive__namespace.Content)(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  min-width: 220px;\n  background: white;\n  border-radius: 6px;\n  box-shadow: 5px 5px 14px #495057;\n  padding: 5px;\n  /* this overrides the default css above */\n  ", "\n"], ["\n  min-width: 220px;\n  background: white;\n  border-radius: 6px;\n  box-shadow: 5px 5px 14px #495057;\n  padding: 5px;\n  /* this overrides the default css above */\n  ", "\n"])), function (props) { return props.$contentStyle; });
+var StyledContent = styled__default["default"](DropdownMenuPrimitive__namespace.Content)(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  min-width: 220px;\n  background: white;\n  border-radius: 6px;\n  box-shadow: 5px 5px 14px #495057;\n  padding: 5px;\n  /* this overrides the default css above */\n  ", "\n"], ["\n  min-width: 220px;\n  background: white;\n  border-radius: 6px;\n  box-shadow: 5px 5px 14px #495057;\n  padding: 5px;\n  /* this overrides the default css above */\n  ", "\n"])), function (props) { return props.$contentStyle; });
 styled__default["default"](DropdownMenuPrimitive__namespace.Item)(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  ", "\n  /* this overrides the default css */\n  ", "\n"], ["\n  ", "\n  /* this overrides the default css */\n  ", "\n"])), BaseStyle, function (props) { return props.$baseStyle; });
-styled__default["default"](DropdownMenuPrimitive__namespace.Separator)(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  height: 1px;\n  margin: 5px;\n  background-color: ", ";\n"], ["\n  height: 1px;\n  margin: 5px;\n  background-color: ", ";\n"])), colorTokens.medium);
-styled__default["default"](DropdownMenuPrimitive__namespace.TriggerItem)(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n  ", "\n  /* this overrides the default css */\n  ", "\n"], ["\n  ", "\n  /* this overrides the default css */\n  ", "\n"])), BaseStyle, function (props) { return props.$baseStyle; });
-styled__default["default"](DropdownMenuPrimitive__namespace.CheckboxItem)(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n  ", "\n  /* this overrides the default css */\n  ", "\n"], ["\n  ", "\n  /* this overrides the default css */\n  ", "\n"])), BaseStyle, function (props) { return props.$baseStyle; });
-styled__default["default"](DropdownMenuPrimitive__namespace.ItemIndicator)(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n  position: absolute;\n  left: 0;\n  width: 25px;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n"], ["\n  position: absolute;\n  left: 0;\n  width: 25px;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n"])));
-styled__default["default"](DropdownMenuPrimitive__namespace.RadioItem)(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n  ", "\n  /* this overrides the default css */\n  ", "\n"], ["\n  ", "\n  /* this overrides the default css */\n  ", "\n"])), BaseStyle, function (props) { return props.$baseStyle; });
-styled__default["default"](DropdownMenuPrimitive__namespace.Label)(templateObject_9 || (templateObject_9 = __makeTemplateObject(["\n  font-size: 12px;\n  line-height: 25px;\n  color: grey;\n  opacity: 0.5;\n  padding-left: 25px;\n"], ["\n  font-size: 12px;\n  line-height: 25px;\n  color: grey;\n  opacity: 0.5;\n  padding-left: 25px;\n"])));
+var StyledSeperator = styled__default["default"](DropdownMenuPrimitive__namespace.Separator)(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  height: 1px;\n  margin: 5px;\n  background-color: ", ";\n"], ["\n  height: 1px;\n  margin: 5px;\n  background-color: ", ";\n"])), colorTokens.medium);
+var StyledTriggerItem = styled__default["default"](DropdownMenuPrimitive__namespace.TriggerItem)(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n  ", "\n  /* this overrides the default css */\n  ", "\n"], ["\n  ", "\n  /* this overrides the default css */\n  ", "\n"])), BaseStyle, function (props) { return props.$baseStyle; });
+var StyledCheckboxItem = styled__default["default"](DropdownMenuPrimitive__namespace.CheckboxItem)(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n  ", "\n  /* this overrides the default css */\n  ", "\n"], ["\n  ", "\n  /* this overrides the default css */\n  ", "\n"])), BaseStyle, function (props) { return props.$baseStyle; });
+var StyledItemIndicator = styled__default["default"](DropdownMenuPrimitive__namespace.ItemIndicator)(templateObject_7 || (templateObject_7 = __makeTemplateObject(["\n  position: absolute;\n  left: 0;\n  width: 25px;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n"], ["\n  position: absolute;\n  left: 0;\n  width: 25px;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n"])));
+var StyledRadioItem = styled__default["default"](DropdownMenuPrimitive__namespace.RadioItem)(templateObject_8 || (templateObject_8 = __makeTemplateObject(["\n  ", "\n  /* this overrides the default css */\n  ", "\n"], ["\n  ", "\n  /* this overrides the default css */\n  ", "\n"])), BaseStyle, function (props) { return props.$baseStyle; });
+var StyledRadioLabel = styled__default["default"](DropdownMenuPrimitive__namespace.Label)(templateObject_9 || (templateObject_9 = __makeTemplateObject(["\n  font-size: 12px;\n  line-height: 25px;\n  color: grey;\n  opacity: 0.5;\n  padding-left: 25px;\n"], ["\n  font-size: 12px;\n  line-height: 25px;\n  color: grey;\n  opacity: 0.5;\n  padding-left: 25px;\n"])));
 //should be wrapped in item like <MenuItem>More <RightSlot>+</RightSlot></MenuItem>
 //should wrap SVG ICON
-styled__default["default"].div(templateObject_10 || (templateObject_10 = __makeTemplateObject(["\n  margin-left: auto;\n  padding-left: 20px;\n"], ["\n  margin-left: auto;\n  padding-left: 20px;\n"])));
+var RightSlot = styled__default["default"].div(templateObject_10 || (templateObject_10 = __makeTemplateObject(["\n  margin-left: auto;\n  padding-left: 20px;\n"], ["\n  margin-left: auto;\n  padding-left: 20px;\n"])));
 //Container for MAIN Menu but also NESTED MENU
 var DropdownMenu = DropdownMenuPrimitive__namespace.Root;
+//Main Trigger opening main Menu
+var TriggerMain = DropdownMenuPrimitive__namespace.Trigger;
+//Nested Trigger opening nested menu
+var TriggerItem = StyledTriggerItem;
+//Displays Menu Content - renders menu item - used for BOTH Main/Nested
+var MenuContent = StyledContent;
+//Seperator
+var Seperator = StyledSeperator;
+var CheckboxItem = function (_a) {
+    var checked = _a.checked, setChecked = _a.setChecked, children = _a.children, rest = __rest(_a, ["checked", "setChecked", "children"]);
+    return (React__namespace.createElement(StyledCheckboxItem, __assign({ checked: checked, onCheckedChange: setChecked }, rest), children));
+};
+//if checked state is true, item is rendered, wrapped by CheckboxItem/RadioItem
+var ItemIndicator = StyledItemIndicator;
+var RadioGroup = function (_a) {
+    var value = _a.value, setValue = _a.setValue, children = _a.children, rest = __rest(_a, ["value", "setValue", "children"]);
+    return (React__namespace.createElement(DropdownMenuPrimitive__namespace.RadioGroup, __assign({ value: value, onValueChange: setValue }, rest), children));
+};
+//Radio Item
+var RadioItem = StyledRadioItem;
+//label for radio item
+var RadioLabel = StyledRadioLabel;
 var Dropdown = function (_a) {
     var children = _a.children;
     return (React__namespace.createElement(DropdownMenu, null, children));
+};
+var index$1 = {
+    Dropdown: Dropdown,
+    DropdownMenu: DropdownMenu,
+    TriggerMain: TriggerMain,
+    TriggerItem: TriggerItem,
+    MenuContent: MenuContent,
+    Seperator: Seperator,
+    RightSlot: RightSlot,
+    CheckboxItem: CheckboxItem,
+    ItemIndicator: ItemIndicator,
+    RadioGroup: RadioGroup,
+    RadioItem: RadioItem,
+    RadioLabel: RadioLabel,
 };
 var templateObject_1$1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8, templateObject_9, templateObject_10;
 
@@ -574,8 +610,8 @@ var templateObject_1;
 exports.Checkbox = index;
 exports.Clipboard = Clipboard;
 exports.Download = Download;
-exports.Dropdown = Dropdown;
 exports.Fade = Fade;
+exports.MainDropdown = index$1;
 exports.Message = Message;
 exports.Modal = Modal;
 exports.Pointer = Pointer;

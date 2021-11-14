@@ -24,10 +24,23 @@ declare type RadioGroupProps = {
 };
 export declare const RadioGroup: ({ value, setValue, children, ...rest }: RadioGroupProps) => JSX.Element;
 export declare const RadioItem: import("styled-components").StyledComponent<React.ForwardRefExoticComponent<DropdownMenuPrimitive.DropdownMenuRadioItemProps & React.RefAttributes<HTMLDivElement>>, any, StyledProps, never>;
-export declare const MenuLabel: import("styled-components").StyledComponent<React.ForwardRefExoticComponent<DropdownMenuPrimitive.DropdownMenuLabelProps & React.RefAttributes<HTMLDivElement>>, any, {}, never>;
+export declare const RadioLabel: import("styled-components").StyledComponent<React.ForwardRefExoticComponent<DropdownMenuPrimitive.DropdownMenuLabelProps & React.RefAttributes<HTMLDivElement>>, any, {}, never>;
 declare type DropdownProps = {
     children: React.ReactNode;
     [key: string]: any;
 };
-declare const Dropdown: ({ children }: DropdownProps) => JSX.Element;
-export default Dropdown;
+declare const _default: {
+    Dropdown: ({ children }: DropdownProps) => JSX.Element;
+    DropdownMenu: React.FC<DropdownMenuPrimitive.DropdownMenuProps>;
+    TriggerMain: React.ForwardRefExoticComponent<DropdownMenuPrimitive.DropdownMenuTriggerProps & React.RefAttributes<HTMLButtonElement>>;
+    TriggerItem: import("styled-components").StyledComponent<React.ForwardRefExoticComponent<DropdownMenuPrimitive.DropdownMenuTriggerItemProps & React.RefAttributes<HTMLDivElement>>, any, StyledProps, never>;
+    MenuContent: import("styled-components").StyledComponent<React.ForwardRefExoticComponent<DropdownMenuPrimitive.DropdownMenuContentProps & React.RefAttributes<HTMLDivElement>>, any, StyledProps, never>;
+    Seperator: import("styled-components").StyledComponent<React.ForwardRefExoticComponent<DropdownMenuPrimitive.DropdownMenuSeparatorProps & React.RefAttributes<HTMLDivElement>>, any, {}, never>;
+    RightSlot: import("styled-components").StyledComponent<"div", any, {}, never>;
+    CheckboxItem: ({ checked, setChecked, children, ...rest }: CheckboxItemProps) => JSX.Element;
+    ItemIndicator: import("styled-components").StyledComponent<React.ForwardRefExoticComponent<DropdownMenuPrimitive.DropdownMenuItemIndicatorProps & React.RefAttributes<HTMLSpanElement>>, any, {}, never>;
+    RadioGroup: ({ value, setValue, children, ...rest }: RadioGroupProps) => JSX.Element;
+    RadioItem: import("styled-components").StyledComponent<React.ForwardRefExoticComponent<DropdownMenuPrimitive.DropdownMenuRadioItemProps & React.RefAttributes<HTMLDivElement>>, any, StyledProps, never>;
+    RadioLabel: import("styled-components").StyledComponent<React.ForwardRefExoticComponent<DropdownMenuPrimitive.DropdownMenuLabelProps & React.RefAttributes<HTMLDivElement>>, any, {}, never>;
+};
+export default _default;

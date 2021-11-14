@@ -114,6 +114,7 @@ type CheckboxItemProps = {
   setChecked: () => void;
   children: React.ReactNode;
 };
+
 export const CheckboxItem = ({
   checked,
   setChecked,
@@ -149,7 +150,7 @@ export const RadioGroup = ({
 //Radio Item
 export const RadioItem = StyledRadioItem;
 //label for radio item
-export const MenuLabel = StyledRadioLabel;
+export const RadioLabel = StyledRadioLabel;
 
 type DropdownProps = {
   children: React.ReactNode;
@@ -165,4 +166,17 @@ const Dropdown = ({ children }: DropdownProps) => {
   );
 };
 
-export default Dropdown;
+export default {
+  Dropdown,
+  DropdownMenu,
+  TriggerMain,
+  TriggerItem,
+  MenuContent,
+  Seperator,
+  RightSlot,
+  CheckboxItem,
+  ItemIndicator,
+  RadioGroup,
+  RadioItem,
+  RadioLabel,
+};
