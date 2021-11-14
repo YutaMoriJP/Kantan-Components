@@ -7,4 +7,5 @@ import Pointer from "./Pointer";
 import Fade from "./Fade";
 import MainDropdown from "./Dropdown";
 import Checkbox from "./Checkbox";
-export { Message, Modal, Tooltip, Clipboard, Download, Pointer, Fade, MainDropdown, Checkbox, };
+import MainTransition from "./Transition";
+export { Message, Modal, Tooltip, Clipboard, Download, Pointer, Fade, MainDropdown, Checkbox, MainTransition, };

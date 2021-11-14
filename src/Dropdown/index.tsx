@@ -92,22 +92,22 @@ const StyledRadioLabel = styled(DropdownMenuPrimitive.Label)`
 `;
 //should be wrapped in item like <MenuItem>More <RightSlot>+</RightSlot></MenuItem>
 //should wrap SVG ICON
-export const RightSlot = styled.div`
+const RightSlot = styled.div`
   margin-left: auto;
   padding-left: 20px;
 `;
 //Container for MAIN Menu but also NESTED MENU
-export const DropdownMenu = DropdownMenuPrimitive.Root;
+const DropdownMenu = DropdownMenuPrimitive.Root;
 //Main Trigger opening main Menu
-export const TriggerMain = DropdownMenuPrimitive.Trigger;
+const TriggerMain = DropdownMenuPrimitive.Trigger;
 //Nested Trigger opening nested menu
-export const TriggerItem = StyledTriggerItem;
+const TriggerItem = StyledTriggerItem;
 //Displays Menu Content - renders menu item - used for BOTH Main/Nested
-export const MenuContent = StyledContent;
+const MenuContent = StyledContent;
 //Menu Item
-export const MenuItem = StyledItem;
+const MenuItem = StyledItem;
 //Seperator
-export const Seperator = StyledSeperator;
+const Seperator = StyledSeperator;
 //Checkbox item - toggles checked state
 type CheckboxItemProps = {
   checked: boolean;
@@ -115,7 +115,7 @@ type CheckboxItemProps = {
   children: React.ReactNode;
 };
 
-export const CheckboxItem = ({
+const CheckboxItem = ({
   checked,
   setChecked,
   children,
@@ -126,14 +126,14 @@ export const CheckboxItem = ({
   </StyledCheckboxItem>
 );
 //if checked state is true, item is rendered, wrapped by CheckboxItem/RadioItem
-export const ItemIndicator = StyledItemIndicator;
+const ItemIndicator = StyledItemIndicator;
 //Radio Group Container
 type RadioGroupProps = {
   value: string;
   setValue: React.Dispatch<React.SetStateAction<string>>;
   children: React.ReactNode;
 };
-export const RadioGroup = ({
+const RadioGroup = ({
   value,
   setValue,
   children,
@@ -148,9 +148,9 @@ export const RadioGroup = ({
   </DropdownMenuPrimitive.RadioGroup>
 );
 //Radio Item
-export const RadioItem = StyledRadioItem;
+const RadioItem = StyledRadioItem;
 //label for radio item
-export const RadioLabel = StyledRadioLabel;
+const RadioLabel = StyledRadioLabel;
 
 type DropdownProps = {
   children: React.ReactNode;
@@ -172,6 +172,7 @@ export default {
   TriggerMain,
   TriggerItem,
   MenuContent,
+  MenuItem,
   Seperator,
   RightSlot,
   CheckboxItem,

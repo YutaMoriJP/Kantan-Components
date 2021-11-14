@@ -7,6 +7,7 @@ import Pointer from "./Pointer";
 import Fade from "./Fade";
 import MainDropdown from "./Dropdown";
 import Checkbox from "./Checkbox";
+import MainTransition from "./Transition";
 
 export {
   Message,
@@ -18,4 +19,5 @@ export {
   Fade,
   MainDropdown,
   Checkbox,
+  MainTransition,
 };

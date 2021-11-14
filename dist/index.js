@@ -19,6 +19,7 @@ var framerMotion = require('framer-motion');
 var kantanHooks = require('kantan-hooks');
 var DropdownMenuPrimitive = require('@radix-ui/react-dropdown-menu');
 var CheckboxPrimitive = require('@radix-ui/react-checkbox');
+var reactTransitionGroup = require('react-transition-group');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
@@ -126,7 +127,7 @@ function __makeTemplateObject(cooked, raw) {
     return cooked;
 }
 
-var Center = styled__default["default"].span(templateObject_1$8 || (templateObject_1$8 = __makeTemplateObject(["\n  position: fixed;\n  margin: 0;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%);\n  background: ", ";\n  color: ", ";\n  padding: 10px;\n"], ["\n  position: fixed;\n  margin: 0;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%);\n  background: ", ";\n  color: ", ";\n  padding: 10px;\n"])), function (props) { return props.bgColor || "#212529"; }, function (props) { return props.color || "#ecf6ff"; });
+var Center = styled__default["default"].span(templateObject_1$9 || (templateObject_1$9 = __makeTemplateObject(["\n  position: fixed;\n  margin: 0;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%);\n  background: ", ";\n  color: ", ";\n  padding: 10px;\n"], ["\n  position: fixed;\n  margin: 0;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%);\n  background: ", ";\n  color: ", ";\n  padding: 10px;\n"])), function (props) { return props.bgColor || "#212529"; }, function (props) { return props.color || "#ecf6ff"; });
 var Position = styled__default["default"].span(templateObject_6$2 || (templateObject_6$2 = __makeTemplateObject(["\n  width: fit-content;\n  color: ", ";\n  background: ", ";\n  opacity: 0.9;\n  text-align: center;\n  border-radius: 5px;\n  padding: 6px;\n  position: absolute;\n\n  /* BOTTOM */\n  ", "\n  /* TOP */\n  ", "\n    /* LEFT */\n    ", "\n      /* RIGHT */\n      ", "\n"], ["\n  width: fit-content;\n  color: ", ";\n  background: ", ";\n  opacity: 0.9;\n  text-align: center;\n  border-radius: 5px;\n  padding: 6px;\n  position: absolute;\n\n  /* BOTTOM */\n  ", "\n  /* TOP */\n  ", "\n    /* LEFT */\n    ", "\n      /* RIGHT */\n      ", "\n"])), function (props) { return props.color || "white"; }, function (props) { return props.bgColor || "#212529"; }, function (props) {
     return props.position === "bottom" && styled.css(templateObject_2$5 || (templateObject_2$5 = __makeTemplateObject(["\n      z-index: 1;\n      top: 100%;\n      left: 50%;\n      margin-left: -50px;\n    "], ["\n      z-index: 1;\n      top: 100%;\n      left: 50%;\n      margin-left: -50px;\n    "])));
 }, function (props) {
@@ -170,16 +171,16 @@ var Message = function (_a) {
         return (React__namespace.createElement(Fixed, __assign({ bgColor: bgColor, color: color }, rest), children));
     return React__namespace.createElement(React__namespace.Fragment, null, children);
 };
-var templateObject_1$8, templateObject_2$5, templateObject_3$4, templateObject_4$4, templateObject_5$3, templateObject_6$2, templateObject_7$1;
+var templateObject_1$9, templateObject_2$5, templateObject_3$4, templateObject_4$4, templateObject_5$3, templateObject_6$2, templateObject_7$1;
 
-var BackDropMotion = styled__default["default"](framerMotion.motion.div)(templateObject_1$7 || (templateObject_1$7 = __makeTemplateObject(["\n  position: fixed;\n  width: 100vw;\n  height: 100vh;\n  margin: 0;\n  top: 0;\n  left: 0;\n  background: #000000e1;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: ", ";\n"], ["\n  position: fixed;\n  width: 100vw;\n  height: 100vh;\n  margin: 0;\n  top: 0;\n  left: 0;\n  background: #000000e1;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: ", ";\n"])), function (props) { return props.zIndex || 10000; });
+var BackDropMotion = styled__default["default"](framerMotion.motion.div)(templateObject_1$8 || (templateObject_1$8 = __makeTemplateObject(["\n  position: fixed;\n  width: 100vw;\n  height: 100vh;\n  margin: 0;\n  top: 0;\n  left: 0;\n  background: #000000e1;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: ", ";\n"], ["\n  position: fixed;\n  width: 100vw;\n  height: 100vh;\n  margin: 0;\n  top: 0;\n  left: 0;\n  background: #000000e1;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: ", ";\n"])), function (props) { return props.zIndex || 10000; });
 var Backdrop = function (_a) {
     var children = _a.children, onClick = _a.onClick, zIndex = _a.zIndex;
     return (React__namespace.createElement(BackDropMotion, { onClick: onClick, initial: { opacity: 0 }, animate: { opacity: 1 }, exit: { opacity: 0 }, zIndex: zIndex }, children));
 };
-var templateObject_1$7;
+var templateObject_1$8;
 
-var ModalMotion = styled__default["default"](framerMotion.motion.div)(templateObject_1$6 || (templateObject_1$6 = __makeTemplateObject(["\n  background: ", ";\n"], ["\n  background: ", ";\n"])), function (props) { return props.color; });
+var ModalMotion = styled__default["default"](framerMotion.motion.div)(templateObject_1$7 || (templateObject_1$7 = __makeTemplateObject(["\n  background: ", ";\n"], ["\n  background: ", ";\n"])), function (props) { return props.color; });
 //for animation
 var dropIn = {
     hidden: {
@@ -210,9 +211,9 @@ var Modal = function (_a) {
         React__namespace.createElement(Backdrop, { onClick: handleClose },
             React__namespace.createElement(ModalMotion, __assign({ "aria-modal": true, role: "dialog", tabIndex: -1, onClick: handleClick, variants: dropIn, initial: "hidden", animate: "visible", exit: "exit", color: color }, rest), children))));
 };
-var templateObject_1$6;
+var templateObject_1$7;
 
-var Wrapper = styled__default["default"].span(templateObject_1$5 || (templateObject_1$5 = __makeTemplateObject(["\n  position: relative;\n  display: inline-block;\n  :hover .tooltiptext {\n    visibility: visible;\n    opacity: 1;\n  }\n"], ["\n  position: relative;\n  display: inline-block;\n  :hover .tooltiptext {\n    visibility: visible;\n    opacity: 1;\n  }\n"])));
+var Wrapper = styled__default["default"].span(templateObject_1$6 || (templateObject_1$6 = __makeTemplateObject(["\n  position: relative;\n  display: inline-block;\n  :hover .tooltiptext {\n    visibility: visible;\n    opacity: 1;\n  }\n"], ["\n  position: relative;\n  display: inline-block;\n  :hover .tooltiptext {\n    visibility: visible;\n    opacity: 1;\n  }\n"])));
 var Span = styled__default["default"].span(templateObject_6$1 || (templateObject_6$1 = __makeTemplateObject(["\n  visibility: hidden;\n  width: 100px;\n  background-color: #212529;\n  color: #fff;\n  text-align: center;\n  border-radius: 5px;\n  padding: 5px 0;\n  opacity: 0;\n  transition: opacity 0.8s ease-in-out;\n  /* BOTTOM */\n  ", "\n  /* TOP */\n  ", "\n    /* LEFT */\n    ", "\n      /* RIGHT */\n      ", "\n"], ["\n  visibility: hidden;\n  width: 100px;\n  background-color: #212529;\n  color: #fff;\n  text-align: center;\n  border-radius: 5px;\n  padding: 5px 0;\n  opacity: 0;\n  transition: opacity 0.8s ease-in-out;\n  /* BOTTOM */\n  ", "\n  /* TOP */\n  ", "\n    /* LEFT */\n    ", "\n      /* RIGHT */\n      ", "\n"])), function (props) {
     return props.bottom && styled.css(templateObject_2$4 || (templateObject_2$4 = __makeTemplateObject(["\n      position: absolute;\n      z-index: 1;\n      top: 100%;\n      left: 50%;\n      margin-left: -50px;\n    "], ["\n      position: absolute;\n      z-index: 1;\n      top: 100%;\n      left: 50%;\n      margin-left: -50px;\n    "])));
 }, function (props) {
@@ -234,7 +235,7 @@ var Tooltip = function (_a) {
         children,
         React__namespace.createElement(Span, __assign({ className: "tooltiptext", "aria-hidden": hidden, "aria-label": text, bottom: defaultPosition }, rest), text)));
 };
-var templateObject_1$5, templateObject_2$4, templateObject_3$3, templateObject_4$3, templateObject_5$2, templateObject_6$1;
+var templateObject_1$6, templateObject_2$4, templateObject_3$3, templateObject_4$3, templateObject_5$2, templateObject_6$1;
 
 //returns an array with numbers with their floor
 var getFloor = function () {
@@ -340,14 +341,14 @@ var Clipboard = function (_a) {
 };
 
 var PointerEvent$1 = styled__default["default"].span(templateObject_2$3 || (templateObject_2$3 = __makeTemplateObject(["\n  text-decoration: none;\n  ", ";\n"], ["\n  text-decoration: none;\n  ", ";\n"])), function (props) {
-    return props.disabled && styled.css(templateObject_1$4 || (templateObject_1$4 = __makeTemplateObject(["\n      cursor: wait;\n    "], ["\n      cursor: wait;\n    "])));
+    return props.disabled && styled.css(templateObject_1$5 || (templateObject_1$5 = __makeTemplateObject(["\n      cursor: wait;\n    "], ["\n      cursor: wait;\n    "])));
 });
 var Link = styled__default["default"].a(templateObject_5$1 || (templateObject_5$1 = __makeTemplateObject(["\n  text-decoration: none;\n  color: inherit;\n  ", ";\n\n  ", ";\n"], ["\n  text-decoration: none;\n  color: inherit;\n  ", ";\n\n  ", ";\n"])), function (props) {
     return props.disabled && styled.css(templateObject_3$2 || (templateObject_3$2 = __makeTemplateObject(["\n      pointer-events: none;\n    "], ["\n      pointer-events: none;\n    "])));
 }, function (props) {
     return !props.disabled && styled.css(templateObject_4$2 || (templateObject_4$2 = __makeTemplateObject(["\n      pointer-events: auto;\n    "], ["\n      pointer-events: auto;\n    "])));
 });
-var templateObject_1$4, templateObject_2$3, templateObject_3$2, templateObject_4$2, templateObject_5$1;
+var templateObject_1$5, templateObject_2$3, templateObject_3$2, templateObject_4$2, templateObject_5$1;
 
 var initialState = {
     status: "idle",
@@ -498,7 +499,7 @@ var Download = function (_a) {
         status === "rejected" ? (React__namespace.createElement("p", { role: "alert" }, error.message || "Error. Try refreshing the page.")) : null));
 };
 
-var Cursor = styled__default["default"].span(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["\n  text-decoration: none;\n  cursor: ", ";\n"], ["\n  text-decoration: none;\n  cursor: ", ";\n"])), function (props) { return (props.disabled ? props.cursor || "not-allowed" : "auto"); });
+var Cursor = styled__default["default"].span(templateObject_1$4 || (templateObject_1$4 = __makeTemplateObject(["\n  text-decoration: none;\n  cursor: ", ";\n"], ["\n  text-decoration: none;\n  cursor: ", ";\n"])), function (props) { return (props.disabled ? props.cursor || "not-allowed" : "auto"); });
 var PointerEvent = styled__default["default"].span(templateObject_4$1 || (templateObject_4$1 = __makeTemplateObject(["\n  text-decoration: none;\n  color: inherit;\n  ", ";\n  ", ";\n"], ["\n  text-decoration: none;\n  color: inherit;\n  ", ";\n  ", ";\n"])), function (props) {
     return props.disabled && styled.css(templateObject_2$2 || (templateObject_2$2 = __makeTemplateObject(["\n      pointer-events: none;\n    "], ["\n      pointer-events: none;\n    "])));
 }, function (props) {
@@ -509,12 +510,12 @@ var Pointer = function (_a) {
     return (React__namespace.createElement(Cursor, { "aria-disabled": disabled, disabled: disabled, cursor: cursor },
         React__namespace.createElement(PointerEvent, __assign({ disabled: disabled }, rest), children)));
 };
-var templateObject_1$3, templateObject_2$2, templateObject_3$1, templateObject_4$1;
+var templateObject_1$4, templateObject_2$2, templateObject_3$1, templateObject_4$1;
 
 var Fade$1 = styled__default["default"].div(templateObject_2$1 || (templateObject_2$1 = __makeTemplateObject(["\n  opacity: 0;\n  transition: opacity 2s ease-in-out;\n  ", "\n"], ["\n  opacity: 0;\n  transition: opacity 2s ease-in-out;\n  ", "\n"])), function (props) {
-    return props.on && styled.css(templateObject_1$2 || (templateObject_1$2 = __makeTemplateObject(["\n      && {\n        opacity: 1;\n      }\n    "], ["\n      && {\n        opacity: 1;\n      }\n    "])));
+    return props.on && styled.css(templateObject_1$3 || (templateObject_1$3 = __makeTemplateObject(["\n      && {\n        opacity: 1;\n      }\n    "], ["\n      && {\n        opacity: 1;\n      }\n    "])));
 });
-var templateObject_1$2, templateObject_2$1;
+var templateObject_1$3, templateObject_2$1;
 
 /**
  * @param {Number} ms - time value in ms that controls when the content is rendered
@@ -538,9 +539,9 @@ var colorTokens = {
     medium: "rgb(87, 70, 175)",
     light: "#f3f0ff",
 };
-var BaseStyle = styled.css(templateObject_1$1 || (templateObject_1$1 = __makeTemplateObject(["\n  all: unset;\n  font-size: 13px;\n  line-height: 1;\n  border-radius: 3px;\n  display: flex;\n  align-items: center;\n  height: 25px;\n  padding: 0 5px;\n  position: relative;\n  padding-left: 25px;\n  color: ", ";\n  :focus {\n    background: ", ";\n    color: ", ";\n  }\n  &[data-disabled] {\n    color: grey !important;\n    opacity: 0.5;\n  }\n"], ["\n  all: unset;\n  font-size: 13px;\n  line-height: 1;\n  border-radius: 3px;\n  display: flex;\n  align-items: center;\n  height: 25px;\n  padding: 0 5px;\n  position: relative;\n  padding-left: 25px;\n  color: ", ";\n  :focus {\n    background: ", ";\n    color: ", ";\n  }\n  &[data-disabled] {\n    color: grey !important;\n    opacity: 0.5;\n  }\n"])), colorTokens.medium, colorTokens.dark, colorTokens.light);
+var BaseStyle = styled.css(templateObject_1$2 || (templateObject_1$2 = __makeTemplateObject(["\n  all: unset;\n  font-size: 13px;\n  line-height: 1;\n  border-radius: 3px;\n  display: flex;\n  align-items: center;\n  height: 25px;\n  padding: 0 5px;\n  position: relative;\n  padding-left: 25px;\n  color: ", ";\n  :focus {\n    background: ", ";\n    color: ", ";\n  }\n  &[data-disabled] {\n    color: grey !important;\n    opacity: 0.5;\n  }\n"], ["\n  all: unset;\n  font-size: 13px;\n  line-height: 1;\n  border-radius: 3px;\n  display: flex;\n  align-items: center;\n  height: 25px;\n  padding: 0 5px;\n  position: relative;\n  padding-left: 25px;\n  color: ", ";\n  :focus {\n    background: ", ";\n    color: ", ";\n  }\n  &[data-disabled] {\n    color: grey !important;\n    opacity: 0.5;\n  }\n"])), colorTokens.medium, colorTokens.dark, colorTokens.light);
 var StyledContent = styled__default["default"](DropdownMenuPrimitive__namespace.Content)(templateObject_2 || (templateObject_2 = __makeTemplateObject(["\n  min-width: 220px;\n  background: white;\n  border-radius: 6px;\n  box-shadow: 5px 5px 14px #495057;\n  padding: 5px;\n  /* this overrides the default css above */\n  ", "\n"], ["\n  min-width: 220px;\n  background: white;\n  border-radius: 6px;\n  box-shadow: 5px 5px 14px #495057;\n  padding: 5px;\n  /* this overrides the default css above */\n  ", "\n"])), function (props) { return props.$contentStyle; });
-styled__default["default"](DropdownMenuPrimitive__namespace.Item)(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  ", "\n  /* this overrides the default css */\n  ", "\n"], ["\n  ", "\n  /* this overrides the default css */\n  ", "\n"])), BaseStyle, function (props) { return props.$baseStyle; });
+var StyledItem = styled__default["default"](DropdownMenuPrimitive__namespace.Item)(templateObject_3 || (templateObject_3 = __makeTemplateObject(["\n  ", "\n  /* this overrides the default css */\n  ", "\n"], ["\n  ", "\n  /* this overrides the default css */\n  ", "\n"])), BaseStyle, function (props) { return props.$baseStyle; });
 var StyledSeperator = styled__default["default"](DropdownMenuPrimitive__namespace.Separator)(templateObject_4 || (templateObject_4 = __makeTemplateObject(["\n  height: 1px;\n  margin: 5px;\n  background-color: ", ";\n"], ["\n  height: 1px;\n  margin: 5px;\n  background-color: ", ";\n"])), colorTokens.medium);
 var StyledTriggerItem = styled__default["default"](DropdownMenuPrimitive__namespace.TriggerItem)(templateObject_5 || (templateObject_5 = __makeTemplateObject(["\n  ", "\n  /* this overrides the default css */\n  ", "\n"], ["\n  ", "\n  /* this overrides the default css */\n  ", "\n"])), BaseStyle, function (props) { return props.$baseStyle; });
 var StyledCheckboxItem = styled__default["default"](DropdownMenuPrimitive__namespace.CheckboxItem)(templateObject_6 || (templateObject_6 = __makeTemplateObject(["\n  ", "\n  /* this overrides the default css */\n  ", "\n"], ["\n  ", "\n  /* this overrides the default css */\n  ", "\n"])), BaseStyle, function (props) { return props.$baseStyle; });
@@ -558,6 +559,8 @@ var TriggerMain = DropdownMenuPrimitive__namespace.Trigger;
 var TriggerItem = StyledTriggerItem;
 //Displays Menu Content - renders menu item - used for BOTH Main/Nested
 var MenuContent = StyledContent;
+//Menu Item
+var MenuItem = StyledItem;
 //Seperator
 var Seperator = StyledSeperator;
 var CheckboxItem = function (_a) {
@@ -578,12 +581,13 @@ var Dropdown = function (_a) {
     var children = _a.children;
     return (React__namespace.createElement(DropdownMenu, null, children));
 };
-var index$1 = {
+var index$2 = {
     Dropdown: Dropdown,
     DropdownMenu: DropdownMenu,
     TriggerMain: TriggerMain,
     TriggerItem: TriggerItem,
     MenuContent: MenuContent,
+    MenuItem: MenuItem,
     Seperator: Seperator,
     RightSlot: RightSlot,
     CheckboxItem: CheckboxItem,
@@ -592,26 +596,38 @@ var index$1 = {
     RadioItem: RadioItem,
     RadioLabel: RadioLabel,
 };
-var templateObject_1$1, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8, templateObject_9, templateObject_10;
+var templateObject_1$2, templateObject_2, templateObject_3, templateObject_4, templateObject_5, templateObject_6, templateObject_7, templateObject_8, templateObject_9, templateObject_10;
 
-var StyledCheckbox = styled__default["default"](CheckboxPrimitive__namespace.Root)(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  all: unset;\n  background-color: ", ";\n  width: 25px;\n  height: 25px;\n  border-radius: 4px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n  box-shadow: 0 2px 10px grey;\n  transition: background-color 300ms ease-in-out;\n"], ["\n  all: unset;\n  background-color: ", ";\n  width: 25px;\n  height: 25px;\n  border-radius: 4px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n  box-shadow: 0 2px 10px grey;\n  transition: background-color 300ms ease-in-out;\n"])), function (props) { return props.$bgColor; });
+var StyledCheckbox = styled__default["default"](CheckboxPrimitive__namespace.Root)(templateObject_1$1 || (templateObject_1$1 = __makeTemplateObject(["\n  all: unset;\n  background-color: ", ";\n  width: 25px;\n  height: 25px;\n  border-radius: 4px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n  box-shadow: 0 2px 10px grey;\n  transition: background-color 300ms ease-in-out;\n"], ["\n  all: unset;\n  background-color: ", ";\n  width: 25px;\n  height: 25px;\n  border-radius: 4px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n  box-shadow: 0 2px 10px grey;\n  transition: background-color 300ms ease-in-out;\n"])), function (props) { return props.$bgColor; });
 var Checkbox = StyledCheckbox;
 var CheckboxIndicator = function (_a) {
     var children = _a.children;
     return (React__namespace.createElement(CheckboxPrimitive__namespace.Indicator, null, children));
 };
-var index = (function (_a) {
+var index$1 = (function (_a) {
     var _b = _a.checkedColor, checkedColor = _b === void 0 ? "#2b8a3e" : _b, _c = _a.uncheckedColor, uncheckedColor = _c === void 0 ? "#f8f9fa" : _c, children = _a.children, checked = _a.checked, onCheckedChange = _a.onCheckedChange, rest = __rest(_a, ["checkedColor", "uncheckedColor", "children", "checked", "onCheckedChange"]);
     return (React__namespace.createElement(Checkbox, __assign({ "$bgColor": checked ? checkedColor : uncheckedColor, checked: checked, onCheckedChange: onCheckedChange }, rest),
         React__namespace.createElement(CheckboxIndicator, null, children)));
 });
+var templateObject_1$1;
+
+var Container = styled__default["default"].span(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  .fade-enter {\n    opacity: 0;\n  }\n\n  .fade-enter-active {\n    opacity: 1;\n    transition: opacity 300ms cubic-bezier(0.55, 0.085, 0.68, 0.53);\n  }\n\n  .fade-exit {\n    opacity: 1;\n  }\n\n  .fade-exit-active {\n    opacity: 0;\n    transition: opacity 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);\n  }\n"], ["\n  .fade-enter {\n    opacity: 0;\n  }\n\n  .fade-enter-active {\n    opacity: 1;\n    transition: opacity 300ms cubic-bezier(0.55, 0.085, 0.68, 0.53);\n  }\n\n  .fade-exit {\n    opacity: 1;\n  }\n\n  .fade-exit-active {\n    opacity: 0;\n    transition: opacity 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);\n  }\n"])));
+var Text = function (_a) {
+    var children = _a.children, text = _a.text;
+    return (React__namespace.createElement(reactTransitionGroup.SwitchTransition, null,
+        React__namespace.createElement(reactTransitionGroup.CSSTransition, { classNames: "fade", addEndListener: function (node, done) {
+                node.addEventListener("transitionend", done, false);
+            }, key: text }, children)));
+};
+var index = { Container: Container, Text: Text };
 var templateObject_1;
 
-exports.Checkbox = index;
+exports.Checkbox = index$1;
 exports.Clipboard = Clipboard;
 exports.Download = Download;
 exports.Fade = Fade;
-exports.MainDropdown = index$1;
+exports.MainDropdown = index$2;
+exports.MainTransition = index;
 exports.Message = Message;
 exports.Modal = Modal;
 exports.Pointer = Pointer;
