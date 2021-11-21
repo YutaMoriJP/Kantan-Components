@@ -69,6 +69,7 @@ type ToolTipProps = {
   children: React.ReactNode;
   text: string;
   bottom?: boolean;
+  describedBy: string;
   top?: boolean;
   right?: boolean;
   left?: boolean;
@@ -79,6 +80,7 @@ const Tooltip = ({
   children,
   text,
   toolTipProps = {},
+  describedBy,
   ...rest
 }: ToolTipProps): JSX.Element => {
   const [hidden, setHidden] = React.useState(true);
@@ -87,6 +89,7 @@ const Tooltip = ({
 
   //apply default position, if all top/bottom/left/right are false, bottom is true
   const { top, bottom, left, right } = rest;
+  //if no positions are passed, then defaultPosition wil be true, which is BOTTOM
   const defaultPosition = !top && !bottom && !left && !right ? true : false;
 
   return (
@@ -97,6 +100,7 @@ const Tooltip = ({
         aria-hidden={hidden}
         aria-label={text}
         bottom={defaultPosition}
+        id={describedBy}
         {...rest}
       >
         {text}

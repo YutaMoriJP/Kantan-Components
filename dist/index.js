@@ -224,16 +224,17 @@ var Span = styled__default["default"].span(templateObject_6$1 || (templateObject
     return props.right && styled.css(templateObject_5$2 || (templateObject_5$2 = __makeTemplateObject(["\n      position: absolute;\n      z-index: 1;\n      top: -5px;\n      left: 105%;\n    "], ["\n      position: absolute;\n      z-index: 1;\n      top: -5px;\n      left: 105%;\n    "])));
 });
 var Tooltip = function (_a) {
-    var children = _a.children, text = _a.text; _a.toolTipProps; var rest = __rest(_a, ["children", "text", "toolTipProps"]);
+    var children = _a.children, text = _a.text; _a.toolTipProps; var describedBy = _a.describedBy, rest = __rest(_a, ["children", "text", "toolTipProps", "describedBy"]);
     var _c = React__namespace.useState(true), hidden = _c[0], setHidden = _c[1];
     var handleMouseOver = function () { return setHidden(false); };
     var handleMouseOut = function () { return setHidden(true); };
     //apply default position, if all top/bottom/left/right are false, bottom is true
     var top = rest.top, bottom = rest.bottom, left = rest.left, right = rest.right;
+    //if no positions are passed, then defaultPosition wil be true, which is BOTTOM
     var defaultPosition = !top && !bottom && !left && !right ? true : false;
     return (React__namespace.createElement(Wrapper, { onMouseOver: handleMouseOver, onMouseOut: handleMouseOut },
         children,
-        React__namespace.createElement(Span, __assign({ className: "tooltiptext", "aria-hidden": hidden, "aria-label": text, bottom: defaultPosition }, rest), text)));
+        React__namespace.createElement(Span, __assign({ className: "tooltiptext", "aria-hidden": hidden, "aria-label": text, bottom: defaultPosition, id: describedBy }, rest), text)));
 };
 var templateObject_1$6, templateObject_2$4, templateObject_3$3, templateObject_4$3, templateObject_5$2, templateObject_6$1;
 
